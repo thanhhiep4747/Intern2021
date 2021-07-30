@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  h1 {
+    font-size: 120px;
+    font-weight: 700;
+  }
+  p {
+    line-height: 25px;
+  }
+}
