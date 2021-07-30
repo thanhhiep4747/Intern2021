@@ -1,0 +1,33 @@
+@import "variable";
+
+header {
+  height: 60px;
+  background-color: $bg-prime;
+  color: $text-color;
+
+  ul {
+    @include flex($w: 85%, $jc: space-around);
+    list-style-type: none;
+    margin: 0 auto;
+    li {
+      font-size: 21px;
+      cursor: pointer;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  height: calc(100% - 100px);
+  position: relative;
+  color: black;
+}
+
+footer {
+  @include flex($w: 100%, $h: 40px, $bg: $bg-prime, $pd: 0 20px);
+  color: $text-color;
+  font-size: 20px;
+}

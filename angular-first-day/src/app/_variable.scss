@@ -1,0 +1,35 @@
+$bg-prime: #09582c;
+$base-size: 18px;
+$text-color: #e5ede9;
+$color-btn: #21487d;
+$btn-bg: #0c4e66;
+$btn-hover: #3367b1;
+
+@mixin flex(
+  $w: 100%,
+  $h: 100%,
+  $bg: transparent,
+  $bd: none,
+  $br: 0,
+  $jc: center,
+  $ali: center,
+  $pd: auto
+) {
+  display: flex;
+  width: $w;
+  height: $h;
+  background-color: $bg;
+  border: $bd;
+  border-radius: $br;
+  justify-content: $jc;
+  align-items: $ali;
+  padding: $pd;
+}
+
+@mixin absolute($top: auto, $left: auto, $right: auto, $bott: auto) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bott;
+}
