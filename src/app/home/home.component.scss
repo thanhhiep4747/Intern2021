@@ -1,0 +1,26 @@
+.body {
+    display: flex;
+    flex: 8;
+    max-height: 80vh;
+
+    .side {
+        padding: 2% 2%;
+        flex-grow: 1;
+        display: flex;
+        flex-flow: column;
+        a {
+            display: block;
+            color: white;
+            padding: 8px 16px;
+            margin: 2% 2%;
+            text-decoration: none;
+            background: #25495F;
+        }
+    }
+    .main {
+        flex: 8;
+        overflow: auto;
+        display: flex;
+        flex-flow: column;
+    }
+}
