@@ -1,0 +1,18 @@
+.nav_header{
+   width: 100%;
+    background-color:rgb(15, 156, 133) ;
+    border: 0px solid ;
+    padding:2% 0%;
+    text-align: center;  
+ a{
+      display: inline-block;
+      padding: 0px 30px;
+      text-decoration: none;
+      color: white;
+      font-size: 150%;
+  
+&:hover{
+  text-shadow: 2px 2px rgb(236, 83, 172);
+} 
+ }
+}

@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@mixin container(){
+width: 75%;
+margin:0 auto;
+}
+.container{
+    @include container;
+
+.footer{
+   width: 100%;
+    border: 0px solid;
+    background-color: rgb(15, 156, 133);
+/*       text-align: center; */
+    padding: 10px 10px;
+  color: white;
+}
+}
