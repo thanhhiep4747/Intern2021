@@ -1,1 +1,21 @@
-<p>home works!</p>
+<div class = "main-content">
+    <aside>
+      <ul class="side-navigation">
+        <a href="#the-flight" (click)=chooseArticle(0)><li>The Flight</li></a>
+        <a href="#the-city" (click)=chooseArticle(1)><li>The City</li></a>
+        <a href="#the-island" (click)=chooseArticle(2)><li>The Island</li></a>
+        <a href="#the-food" (click)=chooseArticle(3)><li>The Food</li></a>
+      </ul>
+    </aside>
+    
+    <section>
+      <article>
+        <h2 id="the-flight">
+          {{article_title}}
+        </h2>
+        <p>
+          {{content}}
+        </p>
+      </article>
+    </section>
+</div>
