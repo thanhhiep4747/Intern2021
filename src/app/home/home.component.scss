@@ -12,7 +12,8 @@
     /* flex-direction:row */
     // flex-grow: 3;
     flex-shrink: 0;
-    flex-basis: 150px;
+    flex-basis:200px;
+    // flex-basis:auto; //200px;
     // border: 0px solid;
     // padding: 0px 10px;
 
@@ -22,12 +23,13 @@
   width: 70%;
     display: block;
     border: 0px solid;
-    padding:6px 0px 6px 30px;
+    padding:6px 0px 6px 10px;
     text-align: left;
     background-color: rgb(15, 30, 165);
     color: white;
     text-decoration: none;
     margin: 30px auto 30px auto;
+    // align-self:center ;
 
 &:hover{
   background-color: rgb(89, 35, 102);
@@ -36,16 +38,33 @@
     }
 }
 .col2{
-   
-  /* display: inline; */
-  
+  flex-shrink: 1;
   margin: 1% auto 0% auto;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 //   flex-grow: 1;
   /* width: 95%; */
   height: 300px;
   /* width: 20%; */
   /* text-align: center; */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f0f5f5; 
+  }
+   
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(112, 136, 146); 
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 }
 }

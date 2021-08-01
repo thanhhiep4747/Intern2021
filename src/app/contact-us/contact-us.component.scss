@@ -1,5 +1,44 @@
 .contact {
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 350px;
+    .item{
+        flex-grow: 1;
+        width: 100px;
+        // height: 100px;
+        color:#000;
+        height: 100%;
+    }
+    .item-1{
+        
+        background-image: url("https://st2.depositphotos.com/1265075/7446/i/600/depositphotos_74468913-stock-photo-contact-us-icons-on-cubes.jpg");
+        background-repeat: no-repeat;
+        font-size: 80px;
+        color: aquamarine;
+        text-align: center;
+        // margin: 0px;
+    }
+    .item-2{
+        margin-left: 50px;
+        textarea{
+            // margin-top:10px;
+            width: 90%;
+            height: 50%;
+            border: 2px solid grey;
+        }
+        button{
+            display: block;
+            background-color: rgb(178, 196, 192);
+            margin: 0 auto;
+            border: none;
+            padding: 5px;
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(124, 126, 158);
+                box-shadow: 0 4px 8px 0 #888888;
+            }
+        }
+    }
     
 }
