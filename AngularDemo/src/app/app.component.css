@@ -10,9 +10,6 @@
 .footer {
     flex: 1
 }
-.body {
-    flex: 3
-}
 .router {
-    flex: 0
+    flex: 3
 }

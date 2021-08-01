@@ -11,4 +11,9 @@
     font-size: 24px;
     color: white;
     height: fit-content;
+    cursor: pointer;
+}
+
+.header p:hover {
+    color: gray;
 }

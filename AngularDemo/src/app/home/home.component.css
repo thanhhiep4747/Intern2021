@@ -19,6 +19,10 @@
     align-items: center;
     background: rgb(30, 103, 147);
 }
+.body .left-body .box:hover {
+    background: gray;
+    cursor: pointer;
+}
 .body .left-body .box p {
     margin-left: 12px;
     color: white;
