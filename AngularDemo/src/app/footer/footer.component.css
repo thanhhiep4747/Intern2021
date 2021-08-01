@@ -1,5 +1,4 @@
 .footer {
-    flex: 1;
     display: flex;
     align-items: center;
     background: rgb(0, 80, 0);
@@ -8,4 +7,5 @@
 .footer p {
     font-size: 18px;
     color: white;
+    height: fit-content;
 }
