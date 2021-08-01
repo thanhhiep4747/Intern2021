@@ -1,53 +1,21 @@
-.body {
-    display: flex;
-    flex-direction: row;
-}
-.body .left-body {
-    flex: 1;
+.container {
     display: flex;
     flex-direction: column;
+    justify-self: center;
     align-items: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    height: 100%;
 }
-.body .left-body .box {
-    width: 80%;
-    height: 42px;
-    margin-top: 12px;
-    display: flex;
-    align-items: center;
-    background: rgb(30, 103, 147);
+.body h1 {
+    height: fit-content;
+    margin: 10px 0px 36px 0px;
 }
-.body .left-body .box:hover {
-    background: gray;
-    cursor: pointer;
+.body p {
+    height: fit-content;
+    margin: 10px 0px 10px 0px;
 }
-.body .left-body .box p {
-    margin-left: 12px;
-    color: white;
+.body ol {
     height: fit-content;
 }
-.body .right-body {
-    flex: 2;
-    margin-right: 12px;
-    margin-top: 30px;
-}
-.body .right-body h1 {
-    margin: 12px 0px 36px 0px;
+.body li {
     height: fit-content;
-}
-
-.body .right-body p {
-    margin: 12px 0px 12px 0px;
-    height: fit-content;
-}
-
-.body .right-body ol {
-    margin: 12px 0px 12px 0px;
-    height: fit-content;
-}
-
-.body .right-body li {
     margin: 10px 0px 10px 0px;
 }
