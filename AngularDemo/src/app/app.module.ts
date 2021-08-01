@@ -18,7 +18,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FooterComponent,
     AboutUsComponent,
     OurClientsComponent,
-    ContactUsComponent
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
