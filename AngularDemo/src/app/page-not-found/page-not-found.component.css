@@ -1,0 +1,9 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body p {
+    height: fit-content;
+    font-size: xx-large;
+}
