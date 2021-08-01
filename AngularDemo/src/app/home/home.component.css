@@ -1,0 +1,34 @@
+.body {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+}
+.body .left-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+}
+.body .left-body .box {
+    width: 80%;
+    height: 42px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    background: rgb(30, 103, 147);
+}
+.body .left-body .box p {
+    margin-left: 12px;
+    color: white
+}
+.body .right-body {
+    flex: 2;
+    margin-right: 12px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.body .right-body h1 {
+    margin: 12px 0px 12px 0px;
+}

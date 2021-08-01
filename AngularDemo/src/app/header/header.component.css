@@ -1,0 +1,12 @@
+.header {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 80, 0);
+}
+.header p {
+    margin: 0px 20px 0px 20px;
+    font-size: 24px;
+    color: white
+}
