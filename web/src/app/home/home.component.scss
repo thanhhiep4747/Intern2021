@@ -1,0 +1,42 @@
+@import "/src/styles.scss";
+// Creates a wrapper for a series of columns
+
+.home-container {
+  width: 800px;
+  @include make-container();
+}
+
+.home-row {
+  @include make-row();
+}
+
+.home-content {
+  @include make-col-ready();
+
+  @include media-breakpoint-up(sm) {
+    @include make-col(8);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(8);
+  }
+}
+.home-nav {
+  @include make-col-ready();
+
+  @include media-breakpoint-up(sm) {
+    @include make-col(4);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
+}
+ul {
+  @include reset-list;
+
+  li {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: white;
+  }
+}
