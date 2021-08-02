@@ -10,6 +10,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { OurClientsComponent } from './our-clients/our-clients.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatIconModule} from '@angular/material/icon';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +25,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     OurClientsComponent,
     ContactUsComponent,
     PageNotFoundComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

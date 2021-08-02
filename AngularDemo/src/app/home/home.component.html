@@ -8,22 +8,22 @@
         </div>
       ))} -->
       <!-- {{data[0].title}} -->
-      <div class="box">
+      <div class="box" (click)="onClick(0)">
         <p>
           The Flight
         </p>
       </div>
-      <div class="box">
+      <div class="box" (click)="onClick(1)">
         <p>
           The City
         </p>
       </div>
-      <div class="box">
+      <div class="box" (click)="onClick(2)">
         <p>
           The Island
         </p>
       </div>
-      <div class="box">
+      <div class="box" (click)="onClick(3)">
         <p>
           The Food
         </p>
@@ -31,13 +31,10 @@
     </div>
     <div class="right-body">
       <h1>
-        The City
+        {{data[selected].title}}
       </h1>
       <p>
-        Chania is the capital of the Chania region on the island of Crete. The city can be divided into two parts, the old town and the modern city.
-      </p>
-      <p>
-        You will learn more about web layout and responsive web pages in a later chapter.
+        {{data[selected].content}}
       </p>
     </div>
 </div>

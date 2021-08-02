@@ -5,6 +5,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { OurClientsComponent } from './our-clients/our-clients.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'our-clients',
     component: OurClientsComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
   },
   { 
     path: '', 
