@@ -1,14 +1,14 @@
-.container {
-    height: 95vh;
-    flex-direction: column;
-    display: flex;
-  }
+// .container {
+//     height: 100vh;   
+//     flex-direction: column;
+//     display: flex;
+//   }
 
 .header {
     background-color: #124026;
     display: flex;
-    flex: 1;
     min-height: 20px;
+    height: 10vh;
     justify-content: space-evenly;
 
     a {
@@ -53,10 +53,10 @@
 .footer {
     background-color: #124026;
     display: flex;
-    flex: 1;
     font-size: 20px;
     color: white;
     align-items:center;
     padding-left: 2%;
     min-height: 20px;
+    height: 10vh;
 }

@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col">
+        <img [src]='[productItem.imgUrl]'/>
+        <p style="font-size: 20px;">{{productItem.description}}</p>
+    </div>
+    <div class="col-md-3">
+        <h1>{{productItem.name}}</h1>
+        <p>{{productItem.color}}</p>
+        <strong>{{productItem.price | currency: 'VND'}}</strong>
+        <strong>{{productItem.note}}</strong>
+        <p>{{productItem.noteDetails}}</p>
+        <h3 style="font-weight: 500;">CHỌN SIZE</h3>
+        <p>{{productItem.size}}</p>
+
+    </div>
+</div>

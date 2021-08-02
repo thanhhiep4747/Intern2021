@@ -1,0 +1,7 @@
+<mat-card class="card" [routerLink]="[productItem.id]">
+    <img mat-card-image [src]="productItem.imgUrl">
+    <mat-card-content class="card-content">
+        <p class="card-text">{{productItem.price | currency:'VND'}}</p>
+        <p class="card-text">{{productItem.name}}</p>
+    </mat-card-content>
+  </mat-card>

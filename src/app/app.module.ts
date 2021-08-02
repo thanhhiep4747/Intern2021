@@ -7,6 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { OurClientsComponent } from './our-clients/our-clients.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ProductsComponent } from './products/products.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { ItemComponent } from './products/product-list/item/item.component';
+import { DetailsComponent } from './products/details/details.component'
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -14,11 +22,19 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HomeComponent,
     AboutUsComponent,
     OurClientsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    ProductsComponent,
+    ProductListComponent,
+    AddProductComponent,
+    ItemComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
