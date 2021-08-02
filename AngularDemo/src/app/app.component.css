@@ -1,17 +1,19 @@
 #container {
     width: 100%;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 .header {
-    flex: 1 0 20vh;
-    display: flex;
-}
-.footer {
-    flex: 1 0 20vh;
+    /* flex-shrink: 0; */
+    height: 20vh;
+    width: 100%;
     display: flex;
 }
 .router {
-    flex: 3 0 60vh;
+    min-height: 60vh;
+    width: 100%;
+}
+.footer {
+    height: 20vh;
+    width: 100%;
+    display: flex;
 }

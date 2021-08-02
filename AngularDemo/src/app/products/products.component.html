@@ -1,9 +1,39 @@
 <div class="products-container">
     <div class="products-header">
-
+        <h1> Products </h1>
     </div>
-    <div class="products-body">
-        <mat-card *ngFor="let i of data" class="product">
+    <div class="menu">
+        <div class="menu-option">
+            <div (click)="onChangeType(0)"> Dog </div>
+            <div (click)="onChangeType(1)"> Cat </div>
+            <div (click)="onChangeType(2)"> Other </div>
+        </div>
+        <div class="menu-action">
+
+        </div>
+    </div>
+    <div *ngIf="type == 0" class="products-body">
+        <mat-card *ngFor="let i of dogData" class="product">
+            <img mat-card-image [src]="i.img" alt="Photo of a Shiba Inu" class="card-img">
+            <mat-card-content class="card-content">
+                <p>
+                    {{i.name}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="type == 1" class="products-body">
+        <mat-card *ngFor="let i of catData" class="product">
+            <img mat-card-image [src]="i.img" alt="Photo of a Shiba Inu" class="card-img">
+            <mat-card-content class="card-content">
+                <p>
+                    {{i.name}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="type == 2" class="products-body">
+        <mat-card *ngFor="let i of otherData" class="product">
             <img mat-card-image [src]="i.img" alt="Photo of a Shiba Inu" class="card-img">
             <mat-card-content class="card-content">
                 <p>
