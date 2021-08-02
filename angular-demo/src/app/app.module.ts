@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { ProductAddComponent } from './product-add/product-add.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { MatRadioModule } from '@angular/material/radio';
     PageNotFoundComponent,
     ProductCardComponent,
     ProductDetailComponent,
+    ProductAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCardModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
