@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="img-slider">
+        <img [src]="product.image" alt="Product image">
+    </div>
+    <div class="info">
+        <p class="title">{{product.name | uppercase}}</p>
+        <p class="price">Price: {{product.price | currency:'USD':true}}</p>
+        <p class="in-stock">In Stock: {{product.inStock | number}}</p>
+        <p class="size-title">Available sizes:</p>
+        <mat-radio-group aria-label="Select an option" class="check-container">
+            <mat-radio-button *ngFor="let size of product.sizes" value="{{size}}">{{size}}</mat-radio-button>
+        </mat-radio-group>
+        <button mat-raised-button color="primary">Buy</button>
+        <button mat-raised-button (click)="goBack()">Back</button>
+    </div>
+</div>

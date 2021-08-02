@@ -1,4 +1,6 @@
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -6,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  products?: any = []
 
-  ngOnInit(): void {}
+  constructor(private productService: ProductService) {}
 
-  scroll(el: HTMLElement) {
-    el.scrollIntoView();
+  ngOnInit(): void {
+    this.getProducts()
   }
+
+  getProducts() {
+    this.products = this.productService.getProducts()
+  }
+
 }
