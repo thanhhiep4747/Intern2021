@@ -8,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class ProductAddComponent implements OnInit {
   product?: any = {
     name: '',
-    price: '',
-    inStock: '',
+    price: 0,
+    inStock: 0,
     image: '',
   };
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    console.log(this.product);
+  }
 }
