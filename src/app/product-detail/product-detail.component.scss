@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.container img{
+    width: 60%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    background-color: white;
+    border: gray;
+    border-style: solid;
+    border-width:thin;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 0px;
+    width: 100%;
+}
+
+button:focus {
+    background-color: black;
+    color: white;
+}

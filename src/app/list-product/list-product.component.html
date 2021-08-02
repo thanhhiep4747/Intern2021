@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <span class="flex-expand"></span>
+    <button mat-raised-button>Insert product</button>
+</mat-toolbar>
+<div class="container">
+    <div fxLayout="row wrap" fxLayoutGap="5px grid" >
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlexAlign="stretch" *ngFor="let product of listProducts">
+            <mat-card  appMaterialElevation>
+                <img [routerLink]="['/detail', product.id]" mat-card-image [src]='product.imgUrl'>
+                <mat-card-content>
+                    <p>{{product.name}}</p>
+                    <p>{{product.price | currency:"đ":'code':'6.0-0'}}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-icon-button><mat-icon>edit</mat-icon></button>
+                    <button mat-icon-button (click)="openConfirmDialog(product.id)" ><mat-icon>delete</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
