@@ -11,9 +11,10 @@ import { OurClientsComponent } from './our-clients/our-clients.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsComponent } from './products/products.component';
 
 import {MatIconModule} from '@angular/material/icon';
-import { ProductsComponent } from './products/products.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductsComponent } from './products/products.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

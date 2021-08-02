@@ -1,0 +1,22 @@
+.products-container {
+    padding: 10px;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+.products-header {
+    height: 10%;
+    flex-shrink: 0;
+}
+.products-body {
+    flex: 1 0 100%;
+    display: flex;
+    margin-left: -20px;
+}
+.product {
+    border-radius: 20px;
+    margin-left: 20px;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
