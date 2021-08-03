@@ -1,6 +1,7 @@
 <mat-toolbar>
     <span class="flex-expand"></span>
     <button mat-raised-button (click)="addProductForm()">Add product</button>
+    <button mat-raised-button (click)="changeForm()">Edit Mode</button>
 </mat-toolbar>
 <div class="container">
     <div fxLayout="row wrap" fxLayoutGap="5px grid" >
@@ -11,10 +12,12 @@
                     <p>{{product.name}}</p>
                     <p>{{product.price | currency:"đ":'code':'6.0-0'}}</p>
                 </mat-card-content>
+                <div *ngIf="editFormCheck">
                 <mat-card-actions align="end">
                     <button mat-icon-button (click)="editProductForm(product)"><mat-icon>edit</mat-icon></button>
                     <button mat-icon-button (click)="openConfirmDialog(product.id)" ><mat-icon>delete</mat-icon></button>
                 </mat-card-actions>
+                </div>
             </mat-card>
         </div>
     </div>

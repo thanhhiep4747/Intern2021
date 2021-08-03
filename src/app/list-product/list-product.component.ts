@@ -13,12 +13,15 @@ import { PRODUCTS } from './mock-data';
 })
 export class ListProductComponent implements OnInit {
   listProducts: Product[] = [];
+  editFormCheck: boolean = false
   constructor(private dialog: MatDialog, private productService: ProductService) {}
 
   ngOnInit() {
     this.getAllProduct()
   }
-
+  changeForm() {
+    this.editFormCheck = !this.editFormCheck
+  }
   getAllProduct(): void {
     this.productService.getAllProducts()
     .subscribe(products => this.listProducts = products);
