@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   }
 
   onDeleteProduct(id: any) {
-    this.productService.deleteProduct(id);
+    if (confirm('Are you sure to delete this product')) {
+      this.productService.deleteProduct(id);
+      this.getProducts();
+    }
   }
 }

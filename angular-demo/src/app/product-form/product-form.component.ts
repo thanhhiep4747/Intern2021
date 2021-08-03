@@ -50,12 +50,11 @@ export class ProductFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const productId = Number(this.route.snapshot.paramMap.get('id'));
-    if (productId) {
-      const product = this.productService.getProduct(productId);
-      console.log(product);
-      this.updateProduct(product);
-    }
+    const productId = this.route.snapshot.paramMap.get('id');
+    if (productId === 'new') return;
+    const product = this.productService.getProduct(Number(productId));
+    console.log(product);
+    this.updateProduct(product);
   }
 
   updateProduct(product: any) {
@@ -72,12 +71,12 @@ export class ProductFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.productForm.value);
-    this.productService.saveProduct(this.productForm.value)
-    this.location.back()
+    this.productService.saveProduct(this.productForm.value);
+    this.location.back();
   }
 
   goBack() {
-    this.location.back();
+    this.location.go('/home');
   }
 
   onSelectSize(check: any, size: any) {

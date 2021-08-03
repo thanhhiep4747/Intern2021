@@ -9,8 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'products/update/:id', component: ProductFormComponent },
-  { path: 'products/new', component: ProductFormComponent },
+  { path: 'products/modify/:id', component: ProductFormComponent },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },

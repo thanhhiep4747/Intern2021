@@ -13,6 +13,6 @@
             <mat-radio-button *ngFor="let size of product.sizes" value="{{size}}">{{size}}</mat-radio-button>
         </mat-radio-group>
         <button mat-raised-button color="primary">Buy</button>
-        <button mat-raised-button (click)="goBack()">Back</button>
+        <button mat-raised-button routerLink="/home">Back</button>
     </div>
 </div>
