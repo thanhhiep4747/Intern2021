@@ -27,9 +27,13 @@ export class ProductService {
       );
       newProducts[index] = product;
       this.products = newProducts;
-      return
+      return;
     }
     product.id = this.products.length + 1;
     this.products = [...this.products, product];
+  }
+
+  deleteProduct(productId: any) {
+    this.products = this.products.filter((p) => p.id !== productId);
   }
 }
