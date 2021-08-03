@@ -72,6 +72,8 @@ export class ProductFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.productForm.value);
+    this.productService.saveProduct(this.productForm.value)
+    this.location.back()
   }
 
   goBack() {
