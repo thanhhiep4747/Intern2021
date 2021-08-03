@@ -1,0 +1,65 @@
+<div class="container">
+    <h2>Add new product</h2>
+
+    <form class="form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Nguyen Van A" type="text" formControlName="name" name="name">
+            <mat-error *ngIf="productForm.hasError('required','name')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="100" type="number" formControlName="price" name="price">
+            <mat-error *ngIf="productForm.hasError('required','price')">
+                Price is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>In Stock</mat-label>
+            <input matInput placeholder="100" type="number" formControlName="inStock" name="inSock">
+            <mat-error *ngIf="productForm.hasError('required','inStock')">
+                In Stock is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Image Url</mat-label>
+            <input matInput placeholder="https://picsum.photos/300/300" type="text" formControlName="image"
+                name="imageUrl">
+            <mat-error *ngIf="productForm.hasError('required','image')">
+                Image Url is <strong>required</strong>
+            </mat-error>
+
+        </mat-form-field> -->
+        <div class="form-field">
+            <label for="sizes">
+                <h3>Pick Sizes</h3>
+            </label>
+            <section class="sizes-section">
+                <mat-checkbox *ngFor="let size of allSizes" (change)="onSelectSize($event.checked, size)" class="size"
+                    [checked]="this.productForm.value.sizes.includes(size)">{{size}}</mat-checkbox>
+            </section>
+            <mat-error *ngIf="productForm.hasError('required','sizes')">
+                Sizes <strong>required</strong>
+            </mat-error>
+        </div>
+
+        <div class="form-field">
+            <label for="images">Upload images</label><br>
+            <input formControlName="images" type="file" id="images" name="images" multiple
+                (change)="onFileChange($event)">
+        </div>
+        <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px; object-fit: cover;">
+
+        <br>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">Save</button>
+        <span style="margin: 10px;"></span>
+        <button mat-raised-button (click)="goBack()">Back</button>
+    </form>
+
+</div>

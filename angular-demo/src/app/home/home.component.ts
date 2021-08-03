@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   getProducts() {
     this.products = this.productService.getProducts()
+    console.log(this.products)
   }
 
 }

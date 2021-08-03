@@ -1,4 +1,4 @@
-import { ProductAddComponent } from './product-add/product-add.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -9,7 +9,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'products/new', component: ProductAddComponent },
+  { path: 'products/update/:id', component: ProductFormComponent },
+  { path: 'products/new', component: ProductFormComponent },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
