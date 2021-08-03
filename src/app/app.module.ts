@@ -20,6 +20,13 @@ import {MatIconModule} from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ProductService } from './service/product-service.service';
+import { AddProductFormComponent } from './add-product-form/add-product-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ListProductComponent,
     MaterialElevationDirective,
     ProductDetailComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    AddProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +52,16 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatListModule,
+    FormsModule
   ],
-  entryComponents:[ConfirmDialogComponent],
-  providers: [],
+  entryComponents:[ConfirmDialogComponent, AddProductFormComponent],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

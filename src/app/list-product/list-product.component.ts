@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { AddProductFormComponent } from '../add-product-form/add-product-form.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { ProductService } from '../service/product-service.service';
+import { Product } from './Iproduct';
 import { PRODUCTS } from './mock-data';
 
 @Component({
@@ -9,10 +12,17 @@ import { PRODUCTS } from './mock-data';
   styleUrls: ['./list-product.component.scss']
 })
 export class ListProductComponent implements OnInit {
-  listProducts = PRODUCTS;
-  constructor(private dialog: MatDialog) { }
+  listProducts: Product[] = [];
+  constructor(private dialog: MatDialog, private productService: ProductService) {}
 
   ngOnInit() {
+    this.getAllProduct()
+  }
+
+  getAllProduct(): void {
+    this.productService.getAllProducts()
+    .subscribe(products => this.listProducts = products);
+
   }
 
   openConfirmDialog(id: number) {
@@ -25,8 +35,57 @@ export class ListProductComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
         data => {if(data) {
-          this.listProducts = this.listProducts.filter(item => item.id != id);}}
+          this.productService.removeProduct(id)
+          .subscribe(products => this.listProducts = products);
+    }}
     ); 
+  }
+
+  addProductForm(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(AddProductFormComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => {if(data) {
+        const sizeList = data['selectedSizes'].map(Number)
+        const newProduct: Product=
+        {id: this.productService.getLastedId(), name: data['name'],imgUrl: data['imgUrl'],price: data['price'], size: sizeList }
+        this.productService.addProduct(newProduct)
+        .subscribe(products => this.listProducts = products);
+      }}
+    );
+  }
+
+  
+  editProductForm(product: Product){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = product;
+    const dialogRef = this.dialog.open(AddProductFormComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => {if(data) {
+        const sizeList = data['selectedSizes'].map(Number)
+        const newProduct: Product=
+        {id: data['id'], name: data['name'],imgUrl: data['imgUrl'],price: data['price'], size: sizeList }
+        
+        this.productService.removeProduct(newProduct.id)
+        .subscribe(products =>this.listProducts = products);
+        
+        this.productService.addProduct(newProduct)
+        .subscribe(products => this.listProducts = products);
+
+        this.listProducts.sort(function (a, b) {
+          return a.id - b.id
+        });
+      }}
+    );
   }
 
   

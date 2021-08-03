@@ -1,6 +1,6 @@
 import { Product } from "./Iproduct";
 
-export const PRODUCTS: Product[] = [
+export let PRODUCTS: Array<Product> = [
     {id: 1, name: 'Giày adidas Ultraboost x LEGO Colors', imgUrl:'https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/6a0d6246e26a4852825dad3900baddfd_9366/Giay_adidas_Ultraboost_x_LEGO(r)_Colors_trang_FZ3983_01_standard.jpg', price: 5000000, size: [3.5, 4, 4.5, 5, 5.5, 6]},
     {id: 2, name: 'Giày Forum Low Nam Originals', imgUrl:'https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/f64a0e3176364556aa83ad220006023a_9366/Giay_Forum_Low_trang_GZ9112_01_standard.jpg', price: 2500000, size: [3.5, 4, 4.5, 5, 5.5, 6]},
     {id: 3, name: 'Giày adidas Ultraboost DNA x LEGO Colors', imgUrl:'https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b22f9d0d3fd54d279acbad1d00b4ddc5_9366/gi%C3%A0y-adidas-ultraboost-dna-x-lego-colors.jpg', price: 5000000, size: [3.5, 4, 4.5, 5, 5.5, 6]},
@@ -13,3 +13,13 @@ export const PRODUCTS: Product[] = [
     {id: 10, name: 'Giày NMD_R1 Nam Originals', imgUrl:'https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/82b9b2a940004241a7c7ad2f00dbeb44_9366/Giay_NMD_R1_trang_GZ7947_01_standard.jpg', price: 3600000, size: [3.5, 4, 4.5, 5, 5.5, 6]}
 
 ];
+
+export function _addProduct(newProduct:Product) {
+    PRODUCTS.push(newProduct)
+    return PRODUCTS
+}
+
+export function _removeProduct(id: number){
+    PRODUCTS = PRODUCTS.filter(item => item.id != id)
+    return PRODUCTS
+}

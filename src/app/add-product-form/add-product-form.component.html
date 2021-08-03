@@ -1,0 +1,40 @@
+<div *ngIf="editProduct.id == 0">
+<h2 mat-dialog-title> Add Product </h2>
+</div>
+
+<div *ngIf="editProduct.id != 0">
+  <h2 mat-dialog-title> Edit Product </h2>
+</div>
+<mat-dialog-content>
+  <form [formGroup]="productForm" (ngSubmit)="save()">
+    <mat-form-field appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input matInput type="text"  formControlName="name">
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="outline">
+      <mat-label>Image Url</mat-label>
+      <input matInput placeholder="*.png; *.jpg; ..." formControlName="imgUrl" >
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" class="example-right-align" placeholder="0" formControlName="price">
+      <span matPrefix>đ&nbsp;</span>
+    </mat-form-field>
+    <p></p>        
+    <label>Choose Size:</label>
+    <form [formGroup]="sizeForm" (ngSubmit)="save()">
+      <div *ngFor="let size of sizeList; let i=index">
+          <input type="checkbox" [value]="size.toString()" (change)="onCheckboxChange($event)"/> {{size}}
+
+      </div>
+    
+    </form>
+  </form> 
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button type="submit" [disabled]="!productForm.valid || !sizeForm.valid" (click)="save()">Save</button>
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>
