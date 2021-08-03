@@ -40,6 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 .menu-option div:hover {
     cursor: pointer;
@@ -61,6 +62,18 @@
     height: 400px;
     display: flex;
     flex-direction: column;
+    user-select: none;
+    background-color: white;
+}
+.product:hover {
+    border: 1px solid black;
+    margin-left: 19px;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    margin-top: 19px;
+}
+.product mat-icon {
+    user-select: none;
 }
 .product:hover {
     cursor: pointer;
@@ -75,4 +88,10 @@
     height: 120px;
     margin: 0px;
     padding: 10px;
+    color: black;
+}
+.liked {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

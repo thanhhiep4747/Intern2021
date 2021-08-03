@@ -31,19 +31,26 @@
 }
 .header-right-icon {
     height: 32px;
-    width: 46px;
+    padding: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
+    user-select: none;
+}
+.header-right-icon p {
+    margin: 0px;
+    margin-right: 5px;
 }
 .header-right-icon mat-icon {
     color: rgb(0, 80, 0);
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .header-right-icon:hover {
     background-color: gray;
-    width: 66px;
+    padding: 5px;
     cursor: pointer;
 }

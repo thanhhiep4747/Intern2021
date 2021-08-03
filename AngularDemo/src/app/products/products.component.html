@@ -14,6 +14,7 @@
     </div>
     <div *ngIf="type == 0" class="products-body">
         <mat-card *ngFor="let i of dogData" class="product">
+            <mat-icon class="liked" [ngStyle]="{'color': likedColor(i.liked)}" (click)="like(i, dogData)"> favorite </mat-icon>
             <img mat-card-image [src]="i.img" alt="Photo of a Shiba Inu" class="card-img">
             <mat-card-content class="card-content">
                 <p>
