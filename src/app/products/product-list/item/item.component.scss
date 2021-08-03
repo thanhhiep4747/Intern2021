@@ -2,8 +2,22 @@
     max-width: 400px;
     height: 400px;
     cursor: pointer;
-
     .card-content {
       overflow: auto;
     }
   }
+
+.container { 
+  position: relative; 
+  padding: 0%;
+
+  img { 
+    display: block; 
+  }
+  .fa-heart { 
+    position: absolute;
+    right: 4px;
+    top: 16px;
+    cursor: pointer;
+  }
+}

@@ -1,5 +1,10 @@
-<mat-card class="card" [routerLink]="[productItem.id]">
-    <img mat-card-image [src]="productItem.imgUrl">
+<mat-card class="card">
+    <div class="container">
+        <img mat-card-image [src]="productItem.imgUrl" [routerLink]="[productItem.id]">
+        <i *ngIf="addedToWishlist" class="fas fa-heart" (click)="handleRemoveFromWishlist()"></i>
+        <i *ngIf="!addedToWishlist" class="far fa-heart" (click)="handleAddToWishlist()"></i>
+        
+    </div>
     <mat-card-content class="card-content">
         <p class="card-text">{{productItem.price | currency:'VND'}}</p>
         <p class="card-text">{{productItem.name}}</p>
