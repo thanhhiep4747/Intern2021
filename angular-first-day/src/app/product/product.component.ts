@@ -88,7 +88,7 @@ export class ProductComponent implements OnInit {
       })
 
       const res = {
-        id: Number(this.productService.getLength()) + 1,
+        id: Date.now(),
         title: result.productname,
         price: result.price,
         image: result.image?result.image: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/1bf4aadbff104009b8b5ad41000f7758_9366/Giay_Forum_Low_Donovan_Mitchell_trang_GY8287_01_standard.jpg',
