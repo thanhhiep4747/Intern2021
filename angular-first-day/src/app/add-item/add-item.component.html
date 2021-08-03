@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>Thêm sản phẩm</h2>
+<mat-dialog-content class="mat-typography">
+
+
+<form class="add-item-form" [formGroup]="addItemForm">
+  <div class="row-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Tên sản phẩm</mat-label>
+      <input matInput placeholder="Tên sản phẩm" formControlName="productname" />
+    </mat-form-field>
+  </div>
+  <div class="row-control">
+    <mat-form-field appearance="outline">
+      <mat-label>Giá</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="Giá sản phẩm"
+        formControlName="price"
+      />
+    </mat-form-field>
+  </div>
+  <div class="row-control">
+    <input #imageInput
+         type="file"
+         accept="image/*"
+         formControlName="image"
+
+    >
+  </div>
+  <div class="row-control">
+    <p>Chọn size</p>
+
+    <form  class="choose-size-form">
+      <div class="choose-size">
+        <mat-checkbox formControlName="size35">3.5 UK</mat-checkbox>
+        <mat-checkbox formControlName="size4">4 UK</mat-checkbox>
+        <mat-checkbox formControlName="size45">4.5 UK</mat-checkbox>
+        <mat-checkbox formControlName="size5">5 UK</mat-checkbox>
+        <mat-checkbox formControlName="size55">5.5 UK</mat-checkbox>
+        <mat-checkbox formControlName="size6">6 UK</mat-checkbox>
+        <mat-checkbox formControlName="size65">6.5 UK</mat-checkbox>
+        <mat-checkbox formControlName="size7">7 UK</mat-checkbox>
+
+      </div>
+    </form>
+  </div>
+
+</form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Huỷ</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!addItemForm.valid" [mat-dialog-close]="addItemForm.value" >Xác nhận</button>
+</mat-dialog-actions>

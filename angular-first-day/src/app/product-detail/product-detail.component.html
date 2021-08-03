@@ -1,0 +1,22 @@
+<div *ngIf="itemDetails" class="content">
+  <div class="slider-image">
+    <img src={{itemDetails.image}} alt="">
+  </div>
+  <div class="info-details">
+    <h1>{{itemDetails.title}}</h1>
+    <p>{{itemDetails.price | currency : 'VND':'symbol'}}</p>
+
+    <span>Chọn size:</span>
+    <div class="table-size">
+
+      <div
+        class="size"
+        *ngFor="let size of itemDetails.size"
+      >
+        {{size}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-page-not-found *ngIf="!itemDetails"></app-page-not-found>

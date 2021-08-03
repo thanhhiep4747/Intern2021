@@ -1,0 +1,35 @@
+
+<div class="content">
+  <div class="tool-bar">
+    <button mat-raised-button color="primary" (click)="openDialog()">Thêm sản phẩm</button>
+  </div>
+
+  <div class="list-product">
+
+
+
+    <mat-card
+      class="item-card"
+      *ngFor="let item of products; let i = index"
+      (click)="onSelect(item)"
+    >
+
+      <img
+        mat-card-image
+        src={{item.image}}
+        alt=""
+
+      >
+      <span class="price">{{item.price | currency : 'VND':'symbol'}}</span>
+
+      <mat-card-content
+
+      >
+          <p>{{item.title}}</p>
+      </mat-card-content>
+
+      <div class="btn-remove" (click)="onRemoveItem((item.id))">X</div>
+    </mat-card>
+
+  </div>
+</div>

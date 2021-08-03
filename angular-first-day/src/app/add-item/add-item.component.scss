@@ -1,0 +1,22 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.mat-form-field-type-mat-input {
+  width: 100%;
+}
+p {
+  font-size: 15px;
+  margin-top: 24px;
+  font-weight: 500;
+}
+.choose-size {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  .mat-checkbox {
+    flex: 1 0 21%;
+    margin: 5px;
+  }
+}

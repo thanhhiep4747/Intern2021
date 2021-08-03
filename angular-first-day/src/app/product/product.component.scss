@@ -1,0 +1,74 @@
+@import "../variable";
+
+.content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.tool-bar {
+  margin-top: 5px;
+  width: 100%;
+  height: 35px;
+  border-top: 1px solid #ebedee;
+  border-bottom: 1px solid #ebedee;
+
+  button {
+    float: right;
+    margin-right: 20px;
+  }
+}
+.list-product {
+  padding-top: 5px;
+  display: grid;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(4, 1fr);
+  .item-card {
+    width: 84%;
+    margin: 8px;
+    cursor: pointer;
+    //height: 395px;
+
+    position: relative;
+    font-size: 14px;
+    line-height: 20px;
+
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 12px 0 rgba(0, 0, 0, 0.19);
+    &:hover {
+      .btn-remove {
+        opacity: 1;
+        font-weight: 700;
+      }
+    }
+    img {
+      height: 302px;
+      background-color: #eceff1;
+      object-position: 50% 13px;
+    }
+    .price {
+      position: absolute;
+      top: 282px;
+      left: 10px;
+      padding: 0 2px;
+      background-color: #ffffff;
+    }
+    .btn-remove {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 0.5;
+      z-index: 5;
+      color: #cfd2d3;
+      background-color: rgba(0, 70, 164, 1);
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+}
