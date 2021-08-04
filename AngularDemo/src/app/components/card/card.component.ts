@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 type Data = {
   id: number,
+  type: number,
   name: string,
   img: string,
   liked: boolean

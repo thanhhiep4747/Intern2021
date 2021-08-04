@@ -15,11 +15,12 @@
     top: 10px;
 }
 .card-img {
-    height: 280px;
+    height: 260px;
     width: 100%;
     object-fit: cover;
     margin: 0px;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .card-content {
     height: 120px;
