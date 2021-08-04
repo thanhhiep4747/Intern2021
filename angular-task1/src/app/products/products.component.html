@@ -3,6 +3,7 @@
 </section>
 <mat-grid-list cols=4 rowHeight="3:4">
     <mat-grid-tile *ngFor="let product of products">
+        <a>
           <mat-card class="product-card" (click)="selectProduct(product.id)">
             <mat-card-content>
                 <img class="product-image" mat-card-image src={{product.imageUrl}}>
@@ -15,5 +16,6 @@
                 </p>
             </mat-card-content>
           </mat-card>
+        </a>
     </mat-grid-tile>
 </mat-grid-list>

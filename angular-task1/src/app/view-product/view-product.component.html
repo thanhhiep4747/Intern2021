@@ -1,0 +1,31 @@
+<div class="container">
+    <section class="product-image">
+        <mat-card class="product-card">
+            <mat-card-content>
+                <img class="image" mat-card-image src={{product.imageUrl}}>
+            </mat-card-content>
+        </mat-card>
+    </section>
+    <section class="product-detail">
+        <section>
+            <span>
+                {{product.category}} • 
+            </span>
+            <button mat-raised-button color="warn" type="submit" (click)="onDeleteClick()">Delete</button>
+        </section>
+        <h1>
+            {{product.name}}
+        </h1>
+        <h2 class="product-price">{{product.price | currency: 'VND'}}</h2>
+        <section>
+            <br>
+            <h3>Chọn size</h3>
+            <mat-grid-list cols=5 rowHeight="2:1">
+                <mat-grid-tile *ngFor="let size of product.sizes">
+                    <button mat-raised-button color="basic" type="submit">{{size}}</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </section>
+        
+    </section>
+</div>

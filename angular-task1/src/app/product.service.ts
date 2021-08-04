@@ -47,18 +47,24 @@ export class ProductService {
     getProducts(){
       return this.products;
     }
-    getProduct(id: number): Product | null{
+    getProduct(id: number): Product{
       for (let product of this.products){
         if (product.id === id)
           return product;
       }
-      return null;
+      return new Product(0, 0, [], "https://ctagency.vn/wp-content/uploads/2020/05/404.png", 0, "", "");
     }
     addProduct(product: Product){
       this.products.push(product);
     }
     removeProduct(id: number){
-      
+      let index = -1;
+      this.products.forEach((product, i) => {
+        if (product.id === id)
+          index = i;
+      });
+      if (index >= 0)
+        this.products.splice(index, 1);
     }
 }
 // interface Shoes {

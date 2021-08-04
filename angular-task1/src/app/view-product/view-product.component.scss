@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+p {
+
+}
+.product-image {
+    order: 1;
+    flex-grow: 2;
+    width: 70%;
+    .product-card {
+        background-color: white;
+    }
+    .image {
+        max-height: 800px;
+    }
+}
+
+.product-detail {
+    width: 30%;
+    order: 2;
+    background-color: white;
+    flex-grow: 1;
+    padding: 10px; 
+}
+mat-grid-tile {
+    padding: 0px;
+}
+mat-card {
+    margin: 10px;
+}
+.box {
+    display: flex;
+    flex-direction: row-reverse;
+}
