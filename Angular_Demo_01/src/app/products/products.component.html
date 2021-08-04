@@ -1,0 +1,20 @@
+<span><h1>GIÀY NAM</h1>
+<button class="button" (click)="add_product()" style="float: right;"> Add Product</button>
+</span>
+
+<div class="product_list">
+        <div *ngFor="let product of products_list">
+              <a [routerLink]="['/products',product.id]">
+           <mat-card  class="item">
+          <img mat-card-image 
+          [src]="product.img">
+          <p class="price" style="background-color: white;">{{product.price}} đ</p>
+          <mat-card-content>
+        
+          <p>{{product.name}}</p>
+            </mat-card-content>
+      </mat-card>
+</a>
+</div>
+      
+</div> 
