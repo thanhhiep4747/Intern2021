@@ -17,6 +17,11 @@ import { DetailsComponent } from './products/details/details.component'
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
 import {MatButtonModule} from '@angular/material/button'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import {ReactiveFormsModule} from '@angular/forms'
+import {MatSelectModule} from '@angular/material/select'
+import {MatInputModule} from '@angular/material/input'
+
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import {MatButtonModule} from '@angular/material/button'
     MatCardModule,
     MatButtonToggleModule,
     MatButtonModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

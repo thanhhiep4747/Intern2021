@@ -1,3 +1,4 @@
+<button mat-raised-button [routerLink]="['add-product']">Add Product</button>
 <div class="row row-cols-1 row-cols-2 row-cols-3 row-cols-4">
     <div class="col" *ngFor="let product of productList">
       <app-item [productItem]="product"></app-item>
