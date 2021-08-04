@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { OurClientsComponent } from './our-clients/our-clients.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductsComponent } from './products/products.component';
-
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+
+// Import pages
+
+import { HomeComponent } from './pages/home/home.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { OurClientsComponent } from './pages/our-clients/our-clients.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+
+// Import components
+
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import {MatCardModule} from '@angular/material/card';
     ContactUsComponent,
     PageNotFoundComponent,
     ProductsComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

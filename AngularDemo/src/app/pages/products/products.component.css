@@ -74,6 +74,7 @@
 }
 .product mat-icon {
     user-select: none;
+    /* border: 0.5px solid black; */
 }
 .product:hover {
     cursor: pointer;
@@ -83,6 +84,7 @@
     width: 100%;
     object-fit: cover;
     margin: 0px;
+    border-radius: 5px;
 }
 .product .card-content {
     height: 120px;

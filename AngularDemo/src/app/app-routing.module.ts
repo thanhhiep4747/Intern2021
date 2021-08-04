@@ -1,13 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { HomeComponent } from './home/home.component';
-import { OurClientsComponent } from './our-clients/our-clients.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductsComponent } from './products/products.component';
+// Import pages
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { HomeComponent } from './pages/home/home.component';
+import { OurClientsComponent } from './pages/our-clients/our-clients.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 const routes: Routes = [
+  {
+    path: 'products/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
   {
     path: 'home',
     component: HomeComponent
@@ -23,10 +33,6 @@ const routes: Routes = [
   {
     path: 'our-clients',
     component: OurClientsComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
   },
   { 
     path: '', 
