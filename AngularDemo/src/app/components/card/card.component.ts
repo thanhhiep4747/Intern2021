@@ -16,14 +16,13 @@ export class CardComponent implements OnInit {
   @Input() data?: Data;
   @Output() iconClick = new EventEmitter<Data>();
 
-  iconColor : string = "white"
+  iconColor : string = "white";
 
   constructor() { }
 
   ngOnInit(): void {
-    if (this.data) {
-      if (this.data.liked) this.iconColor = "red";
-    }
+    if (!this.data) throw new Error('data is required!');
+    if (this.data.liked) this.iconColor = "red";
   }
 
   likedColor (value : boolean) : string {

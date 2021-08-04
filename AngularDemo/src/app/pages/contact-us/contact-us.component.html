@@ -1,7 +1,6 @@
 <div class="body">
   <div class="left-body">
-    <div class="left-container">
-      {{name}}
+    <div class="left-container">  
       <h1> Contact Us! </h1>
       <p> Email: tmsang2000@gmail.com </p>
       <p> Github: tmsang2000 </p>
@@ -13,22 +12,22 @@
     <form>
       <div class="field">
         <label> Name </label>
-        <input type="text" name="name" id="name" [value]="name">
+        <input type="text" name="name" id="name" [(ngModel)]="name">
       </div>
 
       <div class="field">
         <label> Email </label>
-        <input type="email" name="email">
+        <input type="email" name="email" id="email" [(ngModel)]="email">
       </div>
 
       <div class="field">
         <label> Phone </label>
-        <input type="tel" name="phone">
+        <input type="tel" name="phone" id="phone" [(ngModel)]="phone">
       </div>
 
       <div class="message">
         <label> Message </label>
-        <textarea type="text" name="message"> </textarea>
+        <textarea type="text" name="message" id="message" [(ngModel)]="message"> </textarea>
       </div>
 
       <div class="btn">

@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
-  name : string = 'default';
-  email = '';
-  phone = '';
-  message = '';
-
-  
+  name: string = '';
+  email: string = '';
+  phone: string = '';
+  message: string = '';
 
   constructor() {
 
