@@ -57,6 +57,15 @@ export class ProductService {
     addProduct(product: Product){
       this.products.push(product);
     }
+    updateProduct(id: number, product: Product){
+      let index = -1;
+      this.products.forEach((product, i) => {
+        if (product.id === id)
+          index = i;
+      });
+      if (index >= 0)
+        this.products[index] = product;
+    }
     removeProduct(id: number){
       let index = -1;
       this.products.forEach((product, i) => {

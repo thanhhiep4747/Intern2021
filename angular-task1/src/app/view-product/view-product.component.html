@@ -11,6 +11,8 @@
             <span>
                 {{product.category}} • 
             </span>
+            <button mat-raised-button color="primary" type="submit" routerLink="/update-product/{{product.id}}">Update</button>
+            <span> • </span>
             <button mat-raised-button color="warn" type="submit" (click)="onDeleteClick()">Delete</button>
         </section>
         <h1>

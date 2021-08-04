@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
     ContactComponent,
     ProductsComponent,
     AddProductComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
