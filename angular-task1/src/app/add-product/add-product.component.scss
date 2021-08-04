@@ -1,0 +1,26 @@
+::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+       color: slategray;
+    }
+    mat-form-field {
+       .mat-hint, input, ::placeholder, .mat-form-field-label {
+          color: slategray;
+       }
+    }
+    
+    mat-checkbox {
+        margin: 8px;
+    }
+    .mat-checkbox-frame {
+        border-color: slategray;
+    }
+    .mat-form-field-type-mat-select, .mat-select-value {
+        color: rgb(1, 58, 1);
+    }
+ }
+ .container {
+     margin-left: 20px;
+ }
+ button {
+     margin-right: 10px;
+ }

@@ -1,29 +1,17 @@
+<section class="action-bar">
+    <button mat-raised-button color="primary" routerLink="/add-product">Add new product</button>
+</section>
 <mat-grid-list cols=4 rowHeight="3:4">
-    <section class="action-bar">
-        <button mat-raised-button color="primary">Add new product</button>
-    </section>
-    <mat-grid-tile *ngFor="let shoe of shoes">
-        <!-- <mat-card class="product-card">
+    <mat-grid-tile *ngFor="let product of products">
+          <mat-card class="product-card" (click)="selectProduct(product.id)">
             <mat-card-content>
-                <img class="product-image" mat-card-image src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/6a0d6246e26a4852825dad3900baddfd_9366/Giay_adidas_Ultraboost_x_LEGO(r)_Colors_trang_FZ3983_01_standard.jpg" alt="Photo of adidas shoes">
-                <p class="product-price">2500000</p>
+                <img class="product-image" mat-card-image src={{product.imageUrl}}>
+                <p class="product-price">{{product.price | currency: 'VND'}}</p>
                 <p>
-                    Giày adidas Ultraboost x LEGO® Colors
+                    {{product.name}}
                 </p>
                 <p>
-                    Nam Chạy
-                </p>
-            </mat-card-content>
-          </mat-card> -->
-          <mat-card class="product-card">
-            <mat-card-content>
-                <img class="product-image" mat-card-image src={{shoe.imageUrl}}>
-                <p class="product-price">{{shoe.price | currency: 'VND'}}</p>
-                <p>
-                    {{shoe.description}}
-                </p>
-                <p>
-                    {{shoe.category}}
+                    {{product.category}}
                 </p>
             </mat-card-content>
           </mat-card>
