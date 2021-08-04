@@ -1,0 +1,32 @@
+.card-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    background-color: white;
+}
+.like-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.card-img {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0px;
+    border-radius: 5px;
+}
+.card-content {
+    height: 120px;
+    margin: 0px;
+    padding: 10px;
+    color: black;
+}
+/* .card-container mat-icon {
+    user-select: none;
+} */

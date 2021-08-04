@@ -20,6 +20,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PageNotFoundComponent,
     ProductsComponent,
     ProductDetailComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

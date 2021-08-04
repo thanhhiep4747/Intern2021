@@ -1,0 +1,9 @@
+<mat-card *ngIf="data" class="card-container">
+    <mat-icon class="like-icon" [style.color]="iconColor" (click)="emitIconClick()"> favorite </mat-icon>
+    <img mat-card-image [src]="data.img" class="card-img">
+    <mat-card-content class="card-content">
+        <p>
+            {{data.name}}
+        </p>
+    </mat-card-content>
+</mat-card>
