@@ -15,6 +15,8 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { ItemComponent } from './products/product-list/item/item.component';
 import { DetailsComponent } from './products/details/details.component'
 import { MatCardModule } from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle'
+import {MatButtonModule} from '@angular/material/button'
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     NgbModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatButtonToggleModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,19 @@
 <div class="row">
-    <div class="col">
+    <div class="col" style="border: none; margin-right: 32px;">
         <img [src]='[productItem.imgUrl]'/>
-        <p style="font-size: 20px;">{{productItem.description}}</p>
+        <div style="font-size: 16px; padding-top: 16px;" [innerHTML]='[productItem.description]'></div>
     </div>
     <div class="col-md-3">
-        <h1>{{productItem.name}}</h1>
+        <h1 style="font-size: 32px; padding-top: 12px;">{{productItem.name}}</h1>
         <p>{{productItem.color}}</p>
-        <strong>{{productItem.price | currency: 'VND'}}</strong>
+        <p><strong>{{productItem.price | currency: 'VND'}}</strong></p>
         <strong>{{productItem.note}}</strong>
         <p>{{productItem.noteDetails}}</p>
         <h3 style="font-weight: 500;">CHỌN SIZE</h3>
-        <p>{{productItem.size}}</p>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="row row-cols-1 row-cols-2 row-cols-3 row-cols-4 row-cols-5" style="padding-left: 12px;">
+                <mat-button-toggle class="col" *ngFor="let size of productItem.sizes" value="{{size}}">{{size}}</mat-button-toggle>
+        </mat-button-toggle-group>
+        <button class="button-add-to-cart" mat-raised-button color="primary">THÊM VÀO GIỎ HÀNG →</button>
 
     </div>
 </div>
