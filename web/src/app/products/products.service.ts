@@ -1,10 +1,10 @@
-import { Injectable, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService implements OnChanges {
+export class ProductsService {
   products = [
     {
       proId: 0,
@@ -109,16 +109,12 @@ export class ProductsService implements OnChanges {
     12.5,
   ];
   constructor() {}
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('HAHAAHAHAHA');
-  }
 
   getAllProductInstock() {
     return this.products.filter((product) => product.instock === true);
   }
 
   getProductById(proId: number) {
-    console.log('HAHA', proId);
     return this.products.find((val) => val.proId === proId);
   }
 
