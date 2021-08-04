@@ -1,0 +1,27 @@
+@import "/src/styles.scss";
+// Creates a wrapper for a series of columns
+
+.card {
+  border-style: none;
+  margin: 10px;
+}
+
+.card-container {
+  //   width: 800px;
+  @include make-container();
+}
+.card-row {
+  @include make-row();
+  justify-content: center;
+}
+
+.card-col {
+  @include make-col-ready();
+
+  @include media-breakpoint-up(sm) {
+    @include make-col(2);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(2.5);
+  }
+}

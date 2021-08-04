@@ -1,0 +1,23 @@
+<button mat-raised-button (click)="goToAddProducts()">add product</button>
+
+<div class="card-container">
+  <div class="card-row">
+    <mat-card class="card card-col" *ngFor="let product of products">
+      <a [routerLink]="[product.proId]">
+        <img mat-card-image [src]="product.image" [alt]="product.name"
+      /></a>
+
+      <mat-card-actions class="d-flex justify-content-between">
+        <span>{{ product.name }}</span>
+
+        <button mat-button (click)="removeProductById(product.proId)">
+          <mat-icon
+            svgIcon="remove-icon"
+            aria-hidden="false"
+            aria-label="Example thumbs up SVG icon"
+          ></mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

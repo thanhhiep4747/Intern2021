@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="insertProductForm" (ngSubmit)="submitFormInsertProduct()">
+    <mat-form-field appearance="fill">
+      <mat-label>name product</mat-label>
+      <input matInput [formControl]="name" placeholder="" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>price</mat-label>
+      <input matInput [formControl]="price" placeholder="" />
+    </mat-form-field>
+    <br />
+    <div>
+      <label>Instock: </label>
+      <mat-radio-group [formControl]="instock">
+        <mat-radio-button value="true">Yes</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <br />
+
+    <div>
+      <section>
+        <mat-checkbox
+          class="col-md-2"
+          *ngFor="let size of sizes; let i = index"
+          [formControl]="size"
+        >
+          {{ valueOfSizes[i] }}</mat-checkbox
+        >
+      </section>
+    </div>
+    <br />
+    <button mat-raised-button>submit</button>
+  </form>
+  <button mat-raised-button (click)="goToProducts()">back</button>
+</div>

@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  currentRouteId = 0;
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
-
-  changeRoute(id: number) {
-    this.currentRouteId = id;
+  ngOnInit(): void {
+    this.router.navigateByUrl('/home');
   }
 }
