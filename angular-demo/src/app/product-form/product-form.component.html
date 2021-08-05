@@ -49,10 +49,13 @@
             </mat-error>
         </div>
 
-        <div class="form-field">
-            <label for="images">Upload images</label><br>
+        <div class="form-field" style="margin: 20px 0px;">
+            <label id="images-label" for="images">Upload images</label><br>
             <input formControlName="images" type="file" id="images" name="images" multiple
-                (change)="onFileChange($event)">
+                (change)="onFileChange($event)" hidden>
+            <mat-error *ngIf="productForm.hasError('required','imagesSource')">
+                Images <strong>required</strong>
+            </mat-error>
         </div>
         <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px; object-fit: cover;">
 
