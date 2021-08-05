@@ -1,39 +1,48 @@
-import { PRODUCTS } from './mock-products';
+import { Observable } from 'rxjs';
+import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
+import { Product } from './product';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-  products: any[];
+export class ProductService extends BaseService {
+  private apiEndPoint = 'products';
 
-  constructor() {
-    this.products = PRODUCTS;
+  getProducts(): Observable<any> {
+    return this.get(this.apiEndPoint);
   }
 
-  getProducts() {
-    return this.products;
+  getProduct(id: number): Observable<any> {
+    return this.get(`${this.apiEndPoint}/${id}`);
   }
 
-  getProduct(id: number) {
-    return this.products.find((p) => p.id === id);
+  insertProduct(product: Product): Observable<any> {
+    return this.post(this.apiEndPoint, {
+      name: product.name,
+      price: product.price,
+      in_stock: product.inStock,
+      images: product.imagesSource,
+      sizes: product.sizes,
+    });
   }
 
-  saveProduct(product: any) {
-    if (product.id) {
-      const newProducts = [...this.products];
-      const index = newProducts.indexOf(
-        newProducts.filter((p) => p.id === product.id)[0]
-      );
-      newProducts[index] = product;
-      this.products = newProducts;
-      return;
-    }
-    product.id = this.products.length + 1;
-    this.products = [...this.products, product];
+  updateProduct(product: Product): Observable<any> {
+    return this.put(`${this.apiEndPoint}/${product.id}`, {
+      name: product.name,
+      price: product.price,
+      in_stock: product.inStock,
+      images: product.imagesSource,
+      sizes: product.sizes,
+    });
   }
 
-  deleteProduct(productId: any) {
-    this.products = this.products.filter((p) => p.id !== productId);
+  saveProduct(product: Product): Observable<any> {
+    if (product.id) return this.updateProduct(product);
+    return this.insertProduct(product);
+  }
+
+  deleteProduct(id: number): Observable<any> {
+    return this.delete(`${this.apiEndPoint}/${id}`);
   }
 }

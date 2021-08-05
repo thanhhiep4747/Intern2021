@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-form',
@@ -52,8 +53,8 @@ export class ProductFormComponent implements OnInit {
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('id');
     if (productId === 'new') return;
+
     const product = this.productService.getProduct(Number(productId));
-    console.log(product);
     this.updateProduct(product);
   }
 
