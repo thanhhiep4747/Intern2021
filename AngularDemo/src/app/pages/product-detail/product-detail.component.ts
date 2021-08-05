@@ -1,15 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../../models';
 
-type Data = {
-  id: number,
-  type: number,
-  name: string,
-  img: string,
-  liked: boolean
-}
-
-const list : Array<Data> = [
+const list : Array<Product> = [
   {
     id: 0,
     type: 1,
@@ -207,7 +200,7 @@ const list : Array<Data> = [
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  data?: Data;
+  data?: Product;
 
   constructor(private _route: ActivatedRoute) { }
 

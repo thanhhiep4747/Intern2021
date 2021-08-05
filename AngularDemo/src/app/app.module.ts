@@ -9,18 +9,22 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 
 // Import pages
-import { HomeComponent } from './pages/home/home.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { OurClientsComponent } from './pages/our-clients/our-clients.component';
-import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import {
+  HomeComponent,
+  AboutUsComponent,
+  OurClientsComponent,
+  ContactUsComponent,
+  PageNotFoundComponent,
+  ProductsComponent,
+  ProductDetailComponent
+} from './pages';
 
 // Import components
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CardComponent } from './components/card/card.component';
+import {
+  HeaderComponent,
+  FooterComponent,
+  CardComponent
+} from './components';
 
 @NgModule({
   declarations: [

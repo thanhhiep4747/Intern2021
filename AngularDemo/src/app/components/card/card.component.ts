@@ -1,12 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-
-type Data = {
-  id: number,
-  type: number,
-  name: string,
-  img: string,
-  liked: boolean
-}
+import { Product } from '../../models';
 
 @Component({
   selector: 'app-card',
@@ -14,8 +7,8 @@ type Data = {
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() data?: Data;
-  @Output() iconClick = new EventEmitter<Data>();
+  @Input() data?: Product;
+  @Output() iconClick = new EventEmitter<Product>();
 
   iconColor : string = "white";
 
