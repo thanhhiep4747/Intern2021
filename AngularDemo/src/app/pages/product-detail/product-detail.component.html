@@ -2,7 +2,7 @@
     <div class="left-body">
         <div class="img-box">
             <div class="img-box-title">
-                <p *ngIf="data"> {{data.name}} </p>
+                <p> {{data.name}} </p>
             </div>
             <div class="img-box-content">
                 <div class="img-box-content-left">
@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="img-box-content-center">
-                    <img *ngIf="data" mat-card-image [src]="data.img"/>
+                    <img mat-card-image [src]="data.img"/>
                 </div>
                 <div class="img-box-content-right">
                     <div class="icon-content">
@@ -23,17 +23,13 @@
     </div>
     <div class="right-body">
         <div class="right-body-title">
-            <h1 *ngIf="data">
+            <h1>
                 {{data.name}}
             </h1>
         </div>
         <div class="right-body-content">
             <p>
-                Chó Khang hay Alaska Khang hoặc Khang là một giống chó kéo xe ở Alaska. 
-                Giống chó được đặt tên theo bộ tộc Mahlemut là Malamute. 
-                Người Eskimo du mục ở Alaska đã khám phá ra chúng có khả năng di chuyển và kéo xe trên tuyết một khoảng cách rất lớn và liên tục. 
-                Họ đã cho lai tạo với những giống khác như chó Newfoundland hoặc St Bernard để có được giống chó ngày càng to hơn, khỏe hơn, bền bỉ hơn, và chịu được thời tiết khắc nghiệt của vùng Bắc Cực. 
-                Người Nga đã dùng những chú chó này đê chở lông thú và thịt thú rừng tới những khu vực lân cận để bán và đổi các mặt hàng khác. Giống chó này đòi hỏi được tập luyện hàng ngày nếu không chúng sẽ buồn chán và phá hoại
+                {{data.description}}
             </p>
         </div>
     </div>

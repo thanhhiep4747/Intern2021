@@ -43,8 +43,9 @@
     align-items: center;
 }
 .img-box-content-center img {
-    max-width: calc(100vh - 300px);
-    min-width: 560px;
+    height: 72%;
+    width: 72%;
+    object-fit: cover;
 }
 .img-box-content-right {
     flex: 1 0;

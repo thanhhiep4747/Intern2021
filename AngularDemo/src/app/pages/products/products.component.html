@@ -14,7 +14,7 @@
     </div>
     <div class="products-body">
         <div *ngFor="let i of list.data">
-            <app-card [routerLink]="['/products', i.id]" class="product" *ngIf="type == i.type" [data]="i" (iconClick)="list.update(i)"></app-card>
+            <app-card [routerLink]="['/products', i.id]" class="product" *ngIf="type == i.type" [data]="i" (iconClick)="list.updateLiked(i)"></app-card>
         </div>
     </div>
 </div>

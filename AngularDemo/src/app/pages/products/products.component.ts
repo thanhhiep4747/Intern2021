@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { productDB } from '../../fake-db';
-import { Product } from "../../models";
 
 @Component({
   selector: 'app-products',
