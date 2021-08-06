@@ -4,6 +4,7 @@
         <button mat-raised-button color="primary" routerLink="/products/modify/new">New Product</button>
     </div>
     <div class="products">
+        <h1 *ngIf="products.length === 0">There are no products</h1>
         <ng-container *ngFor="let product of products">
             <ng-container *ngIf="product.inStock > 0">
                 <mat-card class="card-container">

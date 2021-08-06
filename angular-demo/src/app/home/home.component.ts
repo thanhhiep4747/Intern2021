@@ -1,6 +1,7 @@
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    console.log(this.products);
   }
 
   getProducts(): void {
@@ -27,12 +29,17 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onDeleteProduct(id: any) {
+  onDeleteProduct(id: any): void {
     if (confirm('Are you sure to delete this product')) {
-      debugger
-      this.productService
-        .deleteProduct(Number(id))
-        .subscribe((value) => console.log(value));
+      this.productService.deleteProduct(Number(id)).subscribe({
+        next: (data) => {
+          console.log('deleted');
+          this.getProducts();
+        },
+        error: (error) => {
+          console.error('There was an error!', error.message);
+        },
+      });
     }
   }
 }

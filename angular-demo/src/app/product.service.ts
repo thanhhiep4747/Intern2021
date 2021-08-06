@@ -17,7 +17,7 @@ export class ProductService extends BaseService {
     return this.get(`${this.apiEndPoint}/${id}`);
   }
 
-  insertProduct(product: Product): Observable<any> {
+  insertProduct(product: any): Observable<any> {
     return this.post(this.apiEndPoint, {
       name: product.name,
       price: product.price,
@@ -27,7 +27,7 @@ export class ProductService extends BaseService {
     });
   }
 
-  updateProduct(product: Product): Observable<any> {
+  updateProduct(product: any): Observable<any> {
     return this.put(`${this.apiEndPoint}/${product.id}`, {
       name: product.name,
       price: product.price,
@@ -37,12 +37,16 @@ export class ProductService extends BaseService {
     });
   }
 
-  saveProduct(product: Product): Observable<any> {
+  saveProduct(product: any): Observable<any> {
     if (product.id) return this.updateProduct(product);
     return this.insertProduct(product);
   }
 
   deleteProduct(id: number): Observable<any> {
     return this.delete(`${this.apiEndPoint}/${id}`);
+  }
+
+  getSizes(): Observable<any> {
+    return this.get(`${this.apiEndPoint}/all-sizes`);
   }
 }

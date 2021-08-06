@@ -1,9 +1,8 @@
 import { ProductService } from './../product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Product } from '../product';
 
 @Component({
   selector: 'app-product-form',
@@ -11,27 +10,7 @@ import { Product } from '../product';
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit {
-  allSizes = [
-    '3.5 UK',
-    '4 UK',
-    '4.5 UK',
-    '5 UK',
-    '5.5 UK',
-    '6 UK',
-    '6.5 UK',
-    '7 UK',
-    '7.5 UK',
-    '8 UK',
-    '8.5 UK',
-    '9 UK',
-    '9.5 UK',
-    '10 UK',
-    '10.5 UK',
-    '11 UK',
-    '11.5 UK',
-    '12 UK',
-    '12.5 UK',
-  ];
+  allSizes: any = [];
   imageSrc?: string;
   productForm = this.fb.group({
     id: [''],
@@ -47,15 +26,24 @@ export class ProductFormComponent implements OnInit {
     private fb: FormBuilder,
     private location: Location,
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.getSizes();
     const productId = this.route.snapshot.paramMap.get('id');
     if (productId === 'new') return;
 
-    const product = this.productService.getProduct(Number(productId));
-    this.updateProduct(product);
+    this.productService.getProduct(Number(productId)).subscribe((product) => {
+      this.updateProduct(product);
+    });
+  }
+
+  getSizes() {
+    this.productService
+      .getSizes()
+      .subscribe((sizes) => (this.allSizes = sizes));
   }
 
   updateProduct(product: any) {
@@ -63,17 +51,30 @@ export class ProductFormComponent implements OnInit {
       id: product.id,
       name: product.name,
       price: product.price,
-      inStock: product.inStock,
+      inStock: product.in_stock,
       sizes: product.sizes,
-      imagesSource: product.imagesSource,
+      imagesSource: product.images,
     });
-    this.imageSrc = product.imagesSource;
+    this.imageSrc = product.images;
   }
 
   onSubmit() {
     console.log(this.productForm.value);
-    this.productService.saveProduct(this.productForm.value);
-    this.location.back();
+    this.productService.saveProduct(this.productForm.value).subscribe({
+      next: (data) => {
+        console.log('Saved');
+      },
+      error: (error) => {
+        console.error('There was an error!', error.message);
+      },
+    });
+    this.router.navigate(['/home'])
+  }
+
+  isSizeChecked(size: any): boolean {
+    const sizes = this.productForm.value.sizes;
+    if (sizes) return sizes.filter((s: any) => s.size === size.size).length > 0;
+    return false;
   }
 
   goBack() {
@@ -89,7 +90,7 @@ export class ProductFormComponent implements OnInit {
       });
     } else {
       const newSizes = this.productForm.value.sizes.filter(
-        (s: any) => s !== size
+        (s: any) => s.size !== size.size
       );
       this.productForm.patchValue({
         sizes: newSizes,

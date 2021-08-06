@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" *ngIf="product">
     <div class="img-slider">
-        <img [src]="product.imagesSource" alt="Product image">
+        <img [src]="product.images" alt="Product image">
         <h1>{{product.name | uppercase}}</h1>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo nobis nam eius repellendus at labore fugiat minima ad optio sint! Laudantium, debitis. Sed odit harum quibusdam culpa ex laboriosam beatae.</p>
     </div>
@@ -10,7 +10,7 @@
         <p class="in-stock">In Stock: {{product.inStock | number}}</p>
         <p class="size-title">Available sizes:</p>
         <mat-radio-group aria-label="Select an option" class="check-container">
-            <mat-radio-button *ngFor="let size of product.sizes" value="{{size}}">{{size}}</mat-radio-button>
+            <mat-radio-button *ngFor="let size of product.sizes" value="{{size.size}}">{{size.size}}</mat-radio-button>
         </mat-radio-group>
         <button mat-raised-button color="primary">Buy</button>
         <button mat-raised-button routerLink="/home">Back</button>

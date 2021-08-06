@@ -2,7 +2,7 @@
     <h2>Add new product</h2>
 
     <form class="form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
-
+        
         <mat-form-field class="form-field" appearance="fill">
             <mat-label>Name</mat-label>
             <input matInput placeholder="Nguyen Van A" type="text" formControlName="name" name="name">
@@ -42,7 +42,7 @@
             </label>
             <section class="sizes-section">
                 <mat-checkbox *ngFor="let size of allSizes" (change)="onSelectSize($event.checked, size)" class="size"
-                    [checked]="this.productForm.value.sizes.includes(size)">{{size}}</mat-checkbox>
+                    [checked]="isSizeChecked(size)">{{size.size}}</mat-checkbox>
             </section>
             <mat-error *ngIf="productForm.hasError('required','sizes')">
                 Sizes <strong>required</strong>

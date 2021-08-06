@@ -2,6 +2,7 @@ import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-detail',
@@ -23,7 +24,9 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct() {
     const productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.productService.getProduct(productId);
+    this.productService.getProduct(Number(productId)).subscribe((value) => {
+      this.product = value;
+    });
   }
 
   goBack() {
