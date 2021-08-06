@@ -12,7 +12,7 @@
         <p>{{product.price}} đ</p>
         <!-- {{product.size}} -->
         <span>
-            <button class="button" *ngFor="let s of product.size;let index = index"> {{s}}
+            <button class="button" *ngFor="let s of product.size;let index = index"> {{s.size}}--{{s.nop}}
         </button>
             <!-- <mat-button-toggle-group>
                 <button class="button" >{{s}}</button>

@@ -19,8 +19,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { NgModel,FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { ProductUpdateComponent } from './product-update/product-update.component';
+// import { NgModel } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +45,10 @@ import { ProductUpdateComponent } from './product-update/product-update.componen
     MatExpansionModule,
     MatIconModule,
     HttpClientModule,
+    // NgModel,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

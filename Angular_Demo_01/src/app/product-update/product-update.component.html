@@ -1,4 +1,4 @@
-<p>product-update works!</p>
+<!-- <p>product-update works!</p> -->
 
 <form [formGroup]="FormUpdate" (ngSubmit)="submitFormUpdate()">
     <label for="pname">Name Product</label>
@@ -9,11 +9,14 @@
     <input type="text" id="img" formControlName="productimage" ><br>
     <label for="detail">Product detail</label>
     <input type="text" id="img" formControlName="productdetail" ><br>
-    <span *ngFor="let size of [28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]">
-        <mat-checkbox (change)="checkCheckBoxvalue($event,size)" [checked]="checkSize(size)" >{{size}}</mat-checkbox>
-        </span>
+    <span *ngFor="let size of this.list_size">
+        <label class="center" [for]="size.size">{{size.size}}</label>
+        <input type="number" [id]="size.size" min=0 
+        [(ngModel)]="this.list_size[(size.size)?(size.size-this.sizemin):0].nop"
+        [ngModelOptions]="{standalone: true}"> 
+            </span>
         <br>
-    <button type="submit"> ADD</button>
+    <button type="submit"> Update</button>
 </form>
 <!-- <app-about-us [num]=12></app-about-us> -->
 
