@@ -32,8 +32,7 @@ export class ProductsComponent implements OnChanges {
 
   ngOnInit(): void {
     this.productService.getAllProductInstock().subscribe((res) => {
-      //this.products = res.filter((product: any) => product.instock === false);
-      this.products = res;
+      this.products = res.filter((product: any) => product.instock === true);
     });
   }
 

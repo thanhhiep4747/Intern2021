@@ -2,7 +2,7 @@
 // Creates a wrapper for a series of columns
 
 .product-details {
-  width: 80%;
+  width: 70vw;
   img {
     width: 98%;
     height: 98%;
@@ -10,6 +10,7 @@
 }
 
 .side-bar {
+  width: 30vw;
   padding: 10px;
   position: sticky;
   height: 800px;
@@ -21,7 +22,7 @@
     border: none;
   }
   mat-button-toggle {
-    width: 100px;
+    width: 80px;
     border: 1px solid;
     margin: 5px;
   }

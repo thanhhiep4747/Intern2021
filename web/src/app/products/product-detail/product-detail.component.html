@@ -61,8 +61,12 @@
           >
             <h4>Choose Size</h4>
           </div>
-          <div fxLayout="row">
-            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <div class="sizes">
+            <mat-button-toggle-group
+              fxLayout="row wrap"
+              name="fontStyle"
+              aria-label="Font Style"
+            >
               <mat-button-toggle
                 *ngFor="let size of currentProduct.sizes; let i = index"
                 [value]="size.sizeName"
