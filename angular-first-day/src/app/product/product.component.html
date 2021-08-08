@@ -4,6 +4,7 @@
     <button mat-raised-button color="primary" (click)="openDialog()">Thêm sản phẩm</button>
   </div>
 
+
   <div class="list-product">
 
 
@@ -16,19 +17,25 @@
 
       <img
         mat-card-image
-        src={{item.image}}
+        src={{item.productImage}}
         alt=""
 
       >
-      <span class="price">{{item.price | currency : 'VND':'symbol'}}</span>
+      <span class="price">{{item.productPrice | currency : 'VND':'symbol'}}</span>
 
       <mat-card-content
 
       >
-          <p>{{item.title}}</p>
+          <p>{{item.productTitle}}</p>
       </mat-card-content>
 
-      <div class="btn-remove" (click)="onRemoveItem((item.id))">X</div>
+      <div
+        class="btn-remove"
+        (click)="onRemoveItem((item.productId))"
+      >
+        X
+
+      </div>
     </mat-card>
 
   </div>
