@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ProductsModule } from './products/products.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,13 +30,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserAnimationsModule,
     ProductsModule,
     AppRoutingModule,
-    // RouterModule.forRoot([
-    //   { path: '', component: HomeComponent },
-    //   { path: 'aboutUs', component: AboutUsComponent },
-    //   { path: 'ourClients', component: OurClientsComponent },
-    //   { path: 'contactUs', component: ContactUsComponent },
-    //   { path: '**', component: NotFoundComponent },
-    // ]),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

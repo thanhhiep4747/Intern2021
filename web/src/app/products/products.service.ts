@@ -1,10 +1,12 @@
+import { BaseService } from './../common/services/base.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService {
+export class ProductsService extends BaseService {
   products = [
     {
       proId: 0,
@@ -108,27 +110,27 @@ export class ProductsService {
     3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
     12.5,
   ];
-  constructor() {}
+  constructor(public http: HttpClient) {
+    super(http);
+  }
 
   getAllProductInstock() {
-    return this.products.filter((product) => product.instock === true);
+    return this.get('products');
   }
 
   getProductById(proId: number) {
-    return this.products.find((val) => val.proId === proId);
+    return this.get(`products/${proId}`);
   }
 
   insertProduct(product: any) {
-    product.proId = this.products.length;
-    this.products.push(product);
-    console.log(this.products);
+    return this.post('products', product);
   }
 
   removeProductById(proId: number) {
-    this.products = this.products.filter((value) => value.proId !== proId);
+    return this.delete(`products/${proId}`);
   }
 
   getAllSizes() {
-    return this.sizes;
+    return this.get('sizes');
   }
 }

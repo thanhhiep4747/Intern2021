@@ -1,7 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Size } from '../models/sizes';
 import { ProductsService } from '../products.service';
+
+function requiredFileTypes(types: string[]) {
+  return function (control: FormControl) {
+    let file = control.value;
+    console.log(file);
+    if (file)
+      for (let type of types) {
+        console.log(type);
+        let re = new RegExp(`\\.${type}$`, 'g');
+        if (file.match(re)) {
+          return null;
+        }
+      }
+    return {
+      requiredFileType: true,
+    };
+  };
+}
 
 @Component({
   selector: 'add-product',
@@ -9,92 +34,81 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent implements OnInit {
-  valueOfSizes;
+  allSizes: Size[] = [];
+  imageSelected: string | ArrayBuffer | null = null;
 
   insertProductForm: FormGroup;
-  name = new FormControl('');
-  price = new FormControl(0);
-  instock = new FormControl('true');
-  sizes: FormControl[] = [];
-  sizes1 = [
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
+  nameControl = new FormControl('', [
+    Validators.minLength(5),
+    Validators.required,
+  ]);
+  priceControl = new FormControl(0, [
+    Validators.pattern(/^[0-9]+$/),
+    Validators.required,
+  ]);
+  instockControl = new FormControl('true');
+  imageControl = new FormControl(null, [
+    Validators.required,
+    requiredFileTypes(['png', 'jpg', 'jpeg']),
+  ]);
+  sizeControls: FormControl[] = [];
 
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-
-    new FormControl(false),
-    new FormControl(false),
-    new FormControl(false),
-  ];
-  product: any;
   constructor(
     private fb: FormBuilder,
     private productService: ProductsService,
     private router: Router
   ) {
-    this.valueOfSizes = this.productService.getAllSizes();
-    for (let i = 0; i < this.valueOfSizes.length; i++) {
-      this.sizes.push(new FormControl(false));
-    }
-
-    console.log(this.sizes);
-
-    // tai sao cach sinh array nhu nay k chay duoc ?
-    // this.sizes = new Array(this.valueOfSizes.length).fill(
-    //   new FormControl(false)
-    // );
-    // console.log(this.sizes);
-
+    this.productService.getAllSizes().subscribe((res) => {
+      this.allSizes = res;
+      for (let i = 0; i < this.allSizes.length; i++) {
+        this.sizeControls.push(new FormControl(false));
+      }
+    });
     this.insertProductForm = this.fb.group({
-      name: this.name,
-      price: this.price,
-      instock: this.instock,
-      sizes: this.sizes,
-      sizes1: this.sizes1,
+      nameControl: this.nameControl,
+      priceControl: this.priceControl,
+      instockControl: this.instockControl,
+      sizeControls: this.sizeControls,
+      imageControl: this.imageControl,
     });
   }
 
   ngOnInit(): void {}
 
-  // setValueOfSizes(index: number, isChecked: boolean, event?: any) {
-  //   this.sizes[index].setValue(isChecked);
-  //   console.log(event);
-  // }
-
   submitFormInsertProduct() {
     let product = {
-      proId: -1,
-      name: this.name.value,
-      price: +this.price.value,
-      instock: !!this.instock.value,
-      sizes: this.filterSizes(),
-      image: `https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/58a87be838b8404796c9ad3900bb2ebb_9366/giày-adidas-ultraboost-x-lego-colors.jpg`,
+      proName: this.nameControl.value,
+      proPrice: +this.priceControl.value,
+      instock: !!this.instockControl.value,
+      proImage: this.imageSelected,
+      sizeIds: this.filterSizeIds(),
     };
-    this.productService.insertProduct(product);
+    this.productService.insertProduct(product).subscribe((res) => {
+      if (res) {
+        this.router.navigateByUrl('/products');
+      } else {
+        alert('Create new Products FAIL !!!');
+      }
+    });
   }
 
-  filterSizes() {
-    return this.valueOfSizes.filter((value, index) => {
-      return this.sizes[index].value === true;
-    });
+  filterSizeIds() {
+    let sizesSelect = this.allSizes.filter(
+      (_, index) => this.sizeControls[index].value === true
+    );
+    return sizesSelect.map((value) => value.sizeId);
   }
 
   goToProducts() {
     this.router.navigateByUrl('/products');
+  }
+
+  onImageSelected(event: any) {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.imageSelected = reader.result;
+    };
   }
 }

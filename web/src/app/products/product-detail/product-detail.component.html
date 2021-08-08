@@ -1,86 +1,76 @@
-<div class="product-container">
-  <div class="product-row">
-    <div class="product-details">
-      <mat-card>
-        <img
-          mat-card-image
-          [src]="currentProduct.image"
-          alt="currentProduct.name"
-        />
-        <mat-card-content> </mat-card-content>
-      </mat-card>
-      <h1>GIÀY {{ currentProduct.name }} ULTRABOOST</h1>
-      <span>Cloud White / Red / Shock Blue / Green</span>
-      <div>{{ currentProduct.price }}.000.000 vnd</div>
-      <div>No returns, no refunds</div>
-      <div>
-        Đơn hàng được xác nhận sau khi xác nhận thanh toán. Không đổi hàng, trả
-        hàng hay hoàn tiền trừ trường hợp pháp luật có quy định khác. Sản phẩm
-        này không áp dụng bất kỳ chương trình ưu đãi và khuyến mãi nào. Giới hạn
-        số lượng 1 sản phẩm trên mỗi đơn hàng.
-      </div>
-      <div>
-        <p>Chon Size</p>
-      </div>
-      <h1>GIÀY ADIDAS ULTRABOOST</h1>
-      <span>Cloud White / Red / Shock Blue / Green</span>
-      <div>5.000.000 vnd</div>
-      <div>No returns, no refunds</div>
-      <div>
-        Đơn hàng được xác nhận sau khi xác nhận thanh toán. Không đổi hàng, trả
-        hàng hay hoàn tiền trừ trường hợp pháp luật có quy định khác. Sản phẩm
-        này không áp dụng bất kỳ chương trình ưu đãi và khuyến mãi nào. Giới hạn
-        số lượng 1 sản phẩm trên mỗi đơn hàng.
-      </div>
-      <div>
-        <p>Chon Size</p>
-      </div>
-      <h1>GIÀY ADIDAS ULTRABOOST</h1>
-      <span>Cloud White / Red / Shock Blue / Green</span>
-      <div>5.000.000 vnd</div>
-      <div>No returns, no refunds</div>
-      <div>
-        Đơn hàng được xác nhận sau khi xác nhận thanh toán. Không đổi hàng, trả
-        hàng hay hoàn tiền trừ trường hợp pháp luật có quy định khác. Sản phẩm
-        này không áp dụng bất kỳ chương trình ưu đãi và khuyến mãi nào. Giới hạn
-        số lượng 1 sản phẩm trên mỗi đơn hàng.
-      </div>
-      <div>
-        <p>Chon Size</p>
-      </div>
-    </div>
-    <div class="buy-description">
-      <h1>GIÀY {{ currentProduct.name }} ULTRABOOST</h1>
-      <span>Cloud White / Red / Shock Blue / Green</span>
-      <div>{{ currentProduct.price }}.000.000 vnd</div>
-      <div>No returns, no refunds</div>
+<div *ngIf="currentProduct !== undefined">
+  <div>
+    <div fxLayout="row">
+      <div class="product-details">
+        <mat-card>
+          <img
+            mat-card-image
+            [src]="currentProduct.proImage"
+            [alt]="currentProduct.proName"
+          />
+          <mat-card-content>
+            <h1>{{ currentProduct.proName }}</h1>
+            <h2>
+              HIGH-PERFORMANCE RUNNING SHOES MADE IN PARTNERSHIP WITH THE LEGO
+              GROUP.
+            </h2>
+            <p>
+              Running is your time to play. And if you couldn't tell by the pops
+              of colour and LEGO bricks inspired design, these adidas running
+              shoes created with the LEGO Group are all about play. Play, and
+              comfort. Because nothing needs to get in the way of a good time. A
+              plush Boost midsole takes care of the cushioning, and the
+              Continental Better Rubber outsole balances fast moves with steady
+              grounding.
+            </p>
 
-      <div>
-        <span>sizes: </span>
-        <span *ngFor="let size of currentProduct.sizes"> {{ size }} </span>
+            <div>
+              <h1>SPECIFICATIONS</h1>
+              <div fxLayout="row">
+                <div>
+                  <ul>
+                    <li>Sock-like fit</li>
+                    <li>Lace closure</li>
+                    <li>adidas Primeknit textile upper</li>
+                    <li>Boost midsole</li>
+                    <li>Textile lining</li>
+                    <li>Weight: 312 g (size UK 8.5)</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>Midsole drop: 10 mm (heel: 29 mm, forefoot: 19 mm)</li>
+                    <li>Continental™ Better Rubber outsole</li>
+                    <li>Primegreen</li>
+                    <li>Color: Cloud White / Red / Shock Blue / Green</li>
+                    <li>Product code: FZ3983</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </div>
-      <div>
-        Đơn hàng được xác nhận sau khi xác nhận thanh toán. Không đổi hàng, trả
-        hàng hay hoàn tiền trừ trường hợp pháp luật có quy định khác. Sản phẩm
-        này không áp dụng bất kỳ chương trình ưu đãi và khuyến mãi nào. Giới hạn
-        số lượng 1 sản phẩm trên mỗi đơn hàng.
-      </div>
-      <div>
-        <p>Chon Size</p>
-      </div>
-
-      <h1>GIÀY {{ currentProduct.name }} ULTRABOOST</h1>
-      <span>Cloud White / Red / Shock Blue / Green</span>
-      <div>{{ currentProduct.price }}.000.000 vnd</div>
-      <div>No returns, no refunds</div>
-      <div>
-        Đơn hàng được xác nhận sau khi xác nhận thanh toán. Không đổi hàng, trả
-        hàng hay hoàn tiền trừ trường hợp pháp luật có quy định khác. Sản phẩm
-        này không áp dụng bất kỳ chương trình ưu đãi và khuyến mãi nào. Giới hạn
-        số lượng 1 sản phẩm trên mỗi đơn hàng.
-      </div>
-      <div>
-        <p>Chon Size</p>
+      <div class="side-bar">
+        <h1>{{ currentProduct.proName }}</h1>
+        <h6>Cloud White / Red / Shock Blue / Green</h6>
+        <div>{{ currentProduct.proPrice | number: "1.0-0" }} vnd</div>
+        <div>
+          <div
+            *ngIf="currentProduct.sizes && currentProduct.sizes.length !== 0"
+          >
+            <h4>Choose Size</h4>
+          </div>
+          <div fxLayout="row">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle
+                *ngFor="let size of currentProduct.sizes; let i = index"
+                [value]="size.sizeName"
+                >{{ size.sizeName }}
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
       </div>
     </div>
   </div>

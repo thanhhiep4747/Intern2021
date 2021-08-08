@@ -1,37 +1,71 @@
-<div class="d-flex justify-content-center">
-  <form [formGroup]="insertProductForm" (ngSubmit)="submitFormInsertProduct()">
-    <mat-form-field appearance="fill">
-      <mat-label>name product</mat-label>
-      <input matInput [formControl]="name" placeholder="" />
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
-      <mat-label>price</mat-label>
-      <input matInput [formControl]="price" placeholder="" />
-    </mat-form-field>
-    <br />
-    <div>
-      <label>Instock: </label>
-      <mat-radio-group [formControl]="instock">
-        <mat-radio-button value="true">Yes</mat-radio-button>
-        <mat-radio-button value="false">No</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <br />
-
-    <div>
-      <section>
-        <mat-checkbox
-          class="col-md-2"
-          *ngFor="let size of sizes; let i = index"
-          [formControl]="size"
+<div class="add-container">
+  <div class="d-flex align-middle justify-content-center">
+    <mat-card class="form-card">
+      <mat-card-header class="d-flex justify-content-center">
+        <mat-card-title>Create new Products</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form
+          [formGroup]="insertProductForm"
+          (ngSubmit)="submitFormInsertProduct()"
         >
-          {{ valueOfSizes[i] }}</mat-checkbox
-        >
-      </section>
-    </div>
-    <br />
-    <button mat-raised-button>submit</button>
-  </form>
-  <button mat-raised-button (click)="goToProducts()">back</button>
+          <mat-form-field appearance="fill">
+            <mat-label>Name Product</mat-label>
+            <input matInput [formControl]="nameControl" placeholder="" />
+          </mat-form-field>
+          <br />
+          <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput [formControl]="priceControl" placeholder="" />
+          </mat-form-field>
+          <br />
+          <div>
+            <mat-radio-group
+              [formControl]="instockControl"
+              class="form-card-radio-group"
+            >
+              <mat-label>Instock</mat-label>
+              <mat-radio-button value="true">Yes</mat-radio-button>
+              <mat-radio-button value="false">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <br />
+          <div>
+            <section>
+              <mat-label>Sizes</mat-label>
+              <br />
+              <mat-checkbox
+                class="col-md-2"
+                *ngFor="let sizeControl of sizeControls; let i = index"
+                [formControl]="sizeControl"
+              >
+                {{ allSizes[i].sizeName }}</mat-checkbox
+              >
+            </section>
+            <mat-label>Product Image: </mat-label>
+          </div>
+          <!-- <div *ngIf="selectedImage !== null">
+            <img mat-card-image [src]="selectedImage" />
+          </div> -->
+          <input
+            type="file"
+            [formControl]="imageControl"
+            (change)="onImageSelected($event)"
+          />
+          <br />
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="insertProductForm.invalid"
+          >
+            Submit
+          </button>
+          <button mat-raised-button color="primary" (click)="goToProducts()">
+            Back
+          </button>
+        </form>
+      </mat-card-content>
+      <mat-card-actions> </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

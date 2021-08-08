@@ -1,3 +1,4 @@
+import { BaseService } from './../common/services/base.service';
 import { ProductsService } from './products.service';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AddProductComponent } from './add-product/add-product.component';
@@ -13,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonToggleModule,
+    FlexLayoutModule,
   ],
   providers: [ProductsService],
 })

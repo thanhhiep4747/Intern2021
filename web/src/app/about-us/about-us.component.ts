@@ -17,11 +17,5 @@ export class AboutUsComponent implements OnChanges {
 
   ngOnInit() {}
 
-  changeFromChild() {
-    this.parentData -= 1;
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.parentData, 'HAHA');
-  }
+  ngOnChanges(changes: SimpleChanges) {}
 }

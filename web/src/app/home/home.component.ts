@@ -57,13 +57,11 @@ export class HomeComponent implements OnInit {
     paragraph will be about human misconceptions of piranhas.`,
     },
   ];
-  currentArticle: any;
+  currentArticle = this.articles[0];
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.currentArticle = this.articles[0];
-  }
+  ngOnInit(): void {}
 
   getArticle(articleId: number) {
     this.currentArticle = this.articles[articleId];
