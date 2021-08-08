@@ -5,6 +5,9 @@ import { Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductSize } from '../model/product-size';
+import { CreateProductDto } from '../model/create-product-dto';
+import { ProductDetail } from '../model/product-detail';
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
@@ -13,14 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateProductComponent implements OnInit {
 
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
-  product: Product = new Product(0,
-    0,
-    [],
-    "https://ctagency.vn/wp-content/uploads/2020/05/404.png",
-    0,
-    "",
-    ""
-  );
+  product: ProductDetail = new ProductDetail(0, "", 0, 0, "https://ctagency.vn/wp-content/uploads/2020/05/404.png", []);
   updateProductForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -29,26 +25,36 @@ export class UpdateProductComponent implements OnInit {
         productId = "0";
       }
       console.log(productId);
-      this.product = this.productService.getProduct(parseInt(productId));
-      this.updateProductForm = new FormGroup({
-        name: new FormControl(this.product.name, Validators.required),
-        price: new FormControl(this.product.price, Validators.required),
-        quantity: new FormControl(this.product.quantity, Validators.required),
-        imageUrl: new FormControl(this.product.imageUrl),
-        sizes: new FormControl(Array(this.sizes.length).fill(0)),
-        category: new FormControl(this.product.category)
-      });
+      this.getCurrentProductInfo(productId);
+      //this.product.id = parseInt(productId);
+      
     });
+  }
+  getCurrentProductInfo(id: string){
+    this.updateProductForm = new FormGroup({
+      name: new FormControl(this.product.name, Validators.required),
+      price: new FormControl(this.product.price, Validators.required),
+      imageUrl: new FormControl(this.product.imageUrl),
+      sizes: new FormControl(Array(this.sizes.length).fill(0)),
+      category: new FormControl(this.product.category)
+    });
+    this.productService.getProduct(parseInt(id)).subscribe(data => {
+      this.product = data;
+      this.updateProductForm.controls["name"].setValue(this.product.name);
+      this.updateProductForm.controls["price"].setValue(this.product.price);
+      this.updateProductForm.controls["category"].setValue(this.product.category);
+    });
+    
   }
   fillCurrentData(){
     //this.addProductForm.controls["name"].value = this.product.name;
   }
   categories: Category[] = [
-    {value: "nam-chay", viewValue: "Nam Chạy"},
-    {value: "originals", viewValue: "Originals"},
-    {value: "nam-originals", viewValue: "Nam Originals"},
-    {value: "colors", viewValue: "Colors"},
-    {value: "golf", viewValue: "Đánh gôn"}];
+    {id: 1, value: "Nam Chạy"},
+    {id: 2, value: "Originals"},
+    {id: 3, value: "Nam Originals"},
+    {id: 4, value: "Colors"},
+    {id: 5, value: "Đánh gôn"}];
   sizes: Size[] = [
     {id: 1, value: "3.5 UK"},
     {id: 2, value: "4 UK"},
@@ -77,25 +83,23 @@ export class UpdateProductComponent implements OnInit {
       const selectedSizes = this.mapSelectedSize(formInput.sizes);
       
       //console.log(formInput.sizes);
-      this.productService.updateProduct(this.product.id, new Product(
-        Date.now(),
-        formInput.quantity,
-        selectedSizes,
-        formInput.imageUrl,
-        formInput.price,
+      this.productService.updateProduct(this.product.id, new CreateProductDto(
         formInput.name,
-        formInput.category
-      ));
-
-      this.back();
-
+        formInput.price,
+        formInput.category,
+        formInput.imageUrl,
+        selectedSizes,
+      )).subscribe(data => {
+        //console.log(data);
+        this.back();
+      });
     }
   }
   mapSelectedSize(arr: number[]){
-    let selectedSizes: string[] = [];
+    let selectedSizes: ProductSize[] = [];
     for (let i in arr){
       if (arr[i] == 1)
-        selectedSizes.push(this.sizes[parseInt(i)].value);
+        selectedSizes.push({sizeId: parseInt(i)+1, quantity: 1});
     }
     return selectedSizes;
   }
@@ -104,8 +108,8 @@ export class UpdateProductComponent implements OnInit {
   }
 }
 interface Category {
+  id: number;
   value: string;
-  viewValue: string;
 }
 interface Size {
   id: number;

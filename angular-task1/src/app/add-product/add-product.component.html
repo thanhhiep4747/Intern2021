@@ -15,12 +15,6 @@
       </div>
       <div class="row-control">
         <mat-form-field appearance="outline">
-          <mat-label>Quantity</mat-label>
-          <input type="number" matInput placeholder="Quantity" formControlName="quantity">
-        </mat-form-field>
-      </div>
-      <div class="row-control">
-        <mat-form-field appearance="outline">
           <mat-label>Image URL</mat-label>
           <input matInput placeholder="Image URL" formControlName="imageUrl">
         </mat-form-field>
@@ -35,8 +29,8 @@
         <mat-form-field appearance="outline">
             <mat-label>Category</mat-label>
             <mat-select formControlName="category">
-                <mat-option *ngFor="let category of categories" [value]=category.viewValue>
-                    {{category.viewValue}}
+                <mat-option *ngFor="let category of categories" [value]=category.id>
+                    {{category.value}}
                 </mat-option>
             </mat-select>>
         </mat-form-field>

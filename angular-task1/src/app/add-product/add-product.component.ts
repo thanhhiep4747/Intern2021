@@ -5,6 +5,9 @@ import { Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Router } from '@angular/router';
+import { ProductDetail } from '../model/product-detail';
+import { CreateProductDto } from '../model/create-product-dto';
+import { ProductSize } from '../model/product-size';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -23,11 +26,11 @@ export class AddProductComponent implements OnInit {
   }
 
   categories: Category[] = [
-    {value: "nam-chay", viewValue: "Nam Chạy"},
-    {value: "originals", viewValue: "Originals"},
-    {value: "nam-originals", viewValue: "Nam Originals"},
-    {value: "colors", viewValue: "Colors"},
-    {value: "golf", viewValue: "Đánh gôn"}];
+    {id: 1, value: "Nam Chạy"},
+    {id: 2, value: "Originals"},
+    {id: 3, value: "Nam Originals"},
+    {id: 4, value: "Colors"},
+    {id: 5, value: "Đánh gôn"}];
   sizes: Size[] = [
     {id: 1, value: "3.5 UK"},
     {id: 2, value: "4 UK"},
@@ -41,10 +44,9 @@ export class AddProductComponent implements OnInit {
   addProductForm = new FormGroup({
     name: new FormControl("", Validators.required),
     price: new FormControl(0, Validators.required),
-    quantity: new FormControl(1, Validators.required),
     imageUrl: new FormControl(""),
     sizes: new FormControl(Array(this.sizes.length).fill(0)),
-    category: new FormControl(this.categories[0].viewValue)
+    category: new FormControl(this.categories[0].id)
   });
 
   addSize(values: MatCheckboxChange, id: number){
@@ -63,25 +65,24 @@ export class AddProductComponent implements OnInit {
       const selectedSizes = this.mapSelectedSize(formInput.sizes);
       
       //console.log(formInput.sizes);
-      this.productService.addProduct(new Product(
-        Date.now(),
-        formInput.quantity,
-        selectedSizes,
-        formInput.imageUrl,
-        formInput.price,
+      this.productService.addProduct(new CreateProductDto(
         formInput.name,
-        formInput.category
-      ));
-
-      this.back();
+        formInput.price,
+        formInput.category,
+        formInput.imageUrl,
+        selectedSizes,
+      )).subscribe(data => {
+        //console.log(data);
+        this.back();
+      });
 
     }
   }
   mapSelectedSize(arr: number[]){
-    let selectedSizes: string[] = [];
+    let selectedSizes: ProductSize[] = [];
     for (let i in arr){
       if (arr[i] == 1)
-        selectedSizes.push(this.sizes[parseInt(i)].value);
+        selectedSizes.push({sizeId: parseInt(i)+1, quantity: 1});
     }
     return selectedSizes;
   }
@@ -90,8 +91,8 @@ export class AddProductComponent implements OnInit {
   }
 }
 interface Category {
+  id: number;
   value: string;
-  viewValue: string;
 }
 interface Size {
   id: number;

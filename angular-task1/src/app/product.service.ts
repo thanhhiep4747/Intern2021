@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ProductDetail } from './model/product-detail';
+import { CreateProductDto } from './model/create-product-dto';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
   products: Product[] = [
     new Product(1,4,
     ["3.5 UK", "4 UK"],
@@ -47,33 +51,21 @@ export class ProductService {
     getProducts(){
       return this.products;
     }
-    getProduct(id: number): Product{
-      for (let product of this.products){
-        if (product.id === id)
-          return product;
-      }
-      return new Product(0, 0, [], "https://ctagency.vn/wp-content/uploads/2020/05/404.png", 0, "", "");
+    getAllProducts(): Observable<any> {
+      return this.http.get("http://localhost:3000/api/products");
     }
-    addProduct(product: Product){
-      this.products.push(product);
+    getProduct(id: number): Observable<any> {
+      return this.http.get(`http://localhost:3000/api/products/${id}`);
     }
-    updateProduct(id: number, product: Product){
-      let index = -1;
-      this.products.forEach((product, i) => {
-        if (product.id === id)
-          index = i;
-      });
-      if (index >= 0)
-        this.products[index] = product;
+    addProduct(product: CreateProductDto){
+      //this.products.push(product);
+      return this.http.post(`http://localhost:3000/api/products`, product);
+    }
+    updateProduct(id: number, product: CreateProductDto){
+      return this.http.put(`http://localhost:3000/api/products/${id}`, product);
     }
     removeProduct(id: number){
-      let index = -1;
-      this.products.forEach((product, i) => {
-        if (product.id === id)
-          index = i;
-      });
-      if (index >= 0)
-        this.products.splice(index, 1);
+      return this.http.delete(`http://localhost:3000/api/products/${id}`);
     }
 }
 // interface Shoes {

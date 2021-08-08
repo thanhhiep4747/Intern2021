@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ProductDetail } from '../model/product-detail';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 @Component({
@@ -11,14 +12,7 @@ export class ViewProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) { }
   //productId: number = 0;
-  product: Product = new Product(0,
-    0,
-    [],
-    "https://ctagency.vn/wp-content/uploads/2020/05/404.png",
-    0,
-    "",
-    ""
-  );
+  product: ProductDetail = new ProductDetail(0, "", 0, 0, "https://ctagency.vn/wp-content/uploads/2020/05/404.png", []);
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       let productId = this.route.snapshot.paramMap.get('id');
@@ -26,12 +20,17 @@ export class ViewProductComponent implements OnInit {
         productId = "0";
       }
       console.log(productId);
-      this.product = this.productService.getProduct(parseInt(productId));
+      this.productService.getProduct(parseInt(productId)).subscribe(data => {
+        if (data.length > 0)
+          this.product = data[0];
+        console.log(data);
+      });
     });
   }
 
   onDeleteClick(){
-    this.productService.removeProduct(this.product.id);
-    this.router.navigateByUrl("/products");
+    this.productService.removeProduct(this.product.id).subscribe((data) => {
+      this.router.navigateByUrl("/products");
+    });
   }
 }

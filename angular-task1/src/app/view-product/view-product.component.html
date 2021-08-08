@@ -24,7 +24,7 @@
             <h3>Chọn size</h3>
             <mat-grid-list cols=5 rowHeight="2:1">
                 <mat-grid-tile *ngFor="let size of product.sizes">
-                    <button mat-raised-button color="basic" type="submit">{{size}}</button>
+                    <button mat-raised-button color="basic" type="submit">{{size.sizeId}}</button>
                 </mat-grid-tile>
             </mat-grid-list>
         </section>
