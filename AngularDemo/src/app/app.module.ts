@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Import pages
 import {
@@ -16,7 +17,9 @@ import {
   ContactUsComponent,
   PageNotFoundComponent,
   ProductsComponent,
-  ProductDetailComponent
+  ProductDetailComponent,
+  AddProductComponent,
+  ProductEditComponent
 } from './pages';
 
 // Import components
@@ -39,6 +42,8 @@ import {
     ProductsComponent,
     ProductDetailComponent,
     CardComponent,
+    AddProductComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import {
     BrowserAnimationsModule,
     MatIconModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

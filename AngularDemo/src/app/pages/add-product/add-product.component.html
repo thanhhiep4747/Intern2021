@@ -1,0 +1,26 @@
+<div class="body">
+    <h1> Add Product </h1>
+    <div class="input-field">
+        <p class="title"> Name </p>
+        <input type="text" name="name" id="name" [(ngModel)]="name"/>
+    </div>
+    <div class="input-field">
+        <p class="title"> Type </p>
+        <select name="type" id="type" [(ngModel)]="type">
+            <option value=0> Dog </option>
+            <option value=1> Cat </option>
+            <option value=2> Other </option>
+        </select>
+    </div>
+    <div class="input-field">
+        <p class="title"> Image source </p>
+        <input type="text" name="img-src" id="img-src" [(ngModel)]="imgSrc"/>
+    </div>
+    <div class="input-field">
+        <p class="title"> Description </p>
+        <textarea name="description" id="description" [(ngModel)]="description"></textarea>
+    </div>
+    <div class="button-content">
+        <button routerLink="/products" class="add-button" (click)="addItem()"> Add </button>
+    </div>
+</div>

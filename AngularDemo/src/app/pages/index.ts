@@ -5,6 +5,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 export {
     HomeComponent,
@@ -13,5 +15,7 @@ export {
     ContactUsComponent,
     PageNotFoundComponent,
     ProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddProductComponent,
+    ProductEditComponent
 }

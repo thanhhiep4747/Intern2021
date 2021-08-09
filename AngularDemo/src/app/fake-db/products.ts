@@ -209,15 +209,7 @@ class ProductsDB {
             img: 'https://www.thesprucepets.com/thmb/bTrscdxxz1RNO7qlidG6SecWK8U=/2119x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-525140239-8808998be45e4bfa9140ae9dbcfe2d79.jpg',
             liked: false,
             description: 'The Syrian hamster, also known as the golden hamster, is among the most popular choices for small pets. Its generally easy to tame, fun to watch, and fairly low-maintenance, making it a good pet for beginners. These hamsters come from arid regions of northern Syria and southern Turkey. The natural color of most Syrian hamsters is golden brown with a lighter belly. But selective breeding has given rise to several variations in color, pattern, and hair length.'
-        },
-        {
-            id: 26,
-            type: 2,
-            name: 'Koi',
-            img: 'https://lh3.googleusercontent.com/proxy/Sga3qx_NqTb4E2g4LtNWzL2ecWtwtURROJUa5bqmgJkAvptsyce9pcafWwE8QJvaiqoyoXpA8E2mgqDL1O0LrEdPd6Wv4RfSc1X8lLij5LrVLgWWejvTN6oaCtnQIMAD60UH_vdmr4mi95PgnvmezQZabs4LfztmzA',
-            liked: false,
-            description: 'Koi is an informal name for the colored variants of C. rubrofuscus kept for ornamental purposes. There are many varieties of ornamental koi, originating from breeding that began in Niigata, Japan in the early 19th century.[1][2][3] Several varieties are recognized by the Japanese, distinguished by coloration, patterning, and scalation. Some of the major colors are white, black, red, orange, yellow, blue, brown and cream. The most popular category of koi is the Gosanke, which is made up of the Kōhaku, Taishō Sanshoku and Shōwa Sanshoku varieties.'
-        },
+        }
     ]
 
     getData(): Array<Product> {
@@ -233,6 +225,10 @@ class ProductsDB {
 
     add(item: Product): void {
         this.data.push(item);
+    }
+
+    update(id: number, item: Product): void {
+        this.data[id] = item;
     }
 
     remove(id: number): void {

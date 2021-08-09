@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // Import pages
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { HomeComponent } from './pages/home/home.component';
-import { OurClientsComponent } from './pages/our-clients/our-clients.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { ProductsComponent } from './pages/products/products.component';
+import { 
+  AboutUsComponent,
+  ContactUsComponent,
+  HomeComponent,
+  OurClientsComponent,
+  PageNotFoundComponent,
+  ProductDetailComponent,
+  ProductsComponent,
+  AddProductComponent,
+  ProductEditComponent
+} from './pages';
 
 const routes: Routes = [
   {
     path: 'products/:id',
     component: ProductDetailComponent
+  },
+  {
+    path: 'edit-product/:id',
+    component: ProductEditComponent
+  },
+  {
+    path: 'add-product',
+    component: AddProductComponent
   },
   {
     path: 'products',
@@ -36,7 +48,7 @@ const routes: Routes = [
   },
   { 
     path: '', 
-    redirectTo: '/home', 
+    redirectTo: '/products', 
     pathMatch: 'full' 
   },
   { 

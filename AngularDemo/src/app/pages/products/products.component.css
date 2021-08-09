@@ -46,6 +46,32 @@
     cursor: pointer;
     border: 1px solid gray;
 }
+.menu-action {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+.menu-action div {
+    flex: 0 0 calc(20% - 10px);
+    font-size: 1.12rem;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    user-select: none;
+}
+.menu-action div p {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 10px;
+}
+.menu-action div:hover {
+    cursor: pointer;
+    border: 1px solid gray;
+}
 .products-body {
     display: flex;
     flex-wrap: wrap;

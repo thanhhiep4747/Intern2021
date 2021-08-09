@@ -1,5 +1,8 @@
 <mat-card *ngIf="data" class="card-container">
-    <mat-icon class="like-icon" [style.color]="iconColor" (click)="emitIconClick()"> favorite </mat-icon>
+    <div class="action-icon">
+        <mat-icon class="add-icon" [routerLink]="['/edit-product', data.id]"> edit </mat-icon>
+        <mat-icon class="like-icon" [style.color]="iconColor" (click)="emitIconClick()"> favorite </mat-icon>
+    </div>
     <img mat-card-image [src]="data.img" class="card-img">
     <mat-card-content class="card-content">
         <p>

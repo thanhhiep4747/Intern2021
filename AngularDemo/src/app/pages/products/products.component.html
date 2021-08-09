@@ -9,12 +9,15 @@
             <div (click)="onChangeType(2)"> Other </div>
         </div>
         <div class="menu-action">
-
+            <div routerLink="/add-product">
+                <mat-icon class="add-icon"> add </mat-icon>
+                <p> Add </p>
+            </div>
         </div>
     </div>
     <div class="products-body">
-        <div *ngFor="let i of list.data">
-            <app-card [routerLink]="['/products', i.id]" class="product" *ngIf="type == i.type" [data]="i" (iconClick)="list.updateLiked(i)"></app-card>
+        <div *ngFor="let i of list">
+            <app-card [routerLink]="['/products', i.id]" class="product" *ngIf="type == i.type && i" [data]="i" (iconClick)="updateLike(i)"></app-card>
         </div>
     </div>
 </div>
